@@ -1,0 +1,67 @@
+  name: Deploy to AWS Amplify
+
+  on:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+
+  jobs:
+    build-and-test:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Setup pnpm
+          uses: pnpm/action-setup@v2
+          with:
+            version: 8
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+            cache: 'pnpm'
+
+        - name: Install dependencies
+          run: pnpm install --frozen-lockfile
+
+        - name: Lint
+          run: pnpm run lint
+
+        - name: Build
+          run: pnpm run build
+
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v3
+
+        - name: Build Docker image
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            push: false
+            tags: dev-portfolio:${{ github.sha }}
+            cache-from: type=gha
+            cache-to: type=gha,mode=max
+
+        - name: Test Docker container
+          run: |
+            docker run -d -p 3000:3000 --name test-container dev-portfolio:${{ github.sha }}
+            sleep 10
+            curl --fail http://localhost:3000 || exit 1
+            docker stop test-container
+
+    deploy:
+      needs: build-and-test
+      runs-on: ubuntu-latest
+      if: github.ref == 'refs/heads/main'
+
+      steps:
+        - name: Deploy to AWS Amplify
+          run: |
+            echo "AWS Amplify will automatically deploy from this branch"
+            echo "Make sure you've connected your GitHub repo to Amplify"
