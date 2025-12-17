@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Image from "next/image";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,13 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen bg-black`}>
-        <Image
-          src="/Jupiter.jpg" // Place your image in /public/jupiter.jpg
-          alt="Jupiter background"
-          fill
-          style={{ objectFit: "contain", zIndex: -1 }}
-          priority
-        />
         {children}
       </body>
     </html>

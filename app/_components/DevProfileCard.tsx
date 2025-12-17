@@ -22,14 +22,14 @@ export default function DevProfileCard() {
 
       return (
         <motion.div
-          initial={{ opacity: 0, x: -50 }} 
+          initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6"
+          className="space-y-4 md:space-y-5 lg:space-y-6"
         >
           {/* Main Profile Card */}
-          <div 
-            className="rounded-xl p-6 border border-white/10"
+          <div
+            className="rounded-lg md:rounded-xl p-4 md:p-5 lg:p-6 border border-white/10"
             style={{
               background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
               backdropFilter: 'blur(12px)',
@@ -39,7 +39,7 @@ export default function DevProfileCard() {
             <div className="flex flex-col items-center text-center space-y-4">
               {/* Profile Image */}
               <div className="relative">
-                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#F97316]/50 shadow-lg shadow-[#F97316]/20">
+                <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-3 md:border-4 border-[#F97316]/50 shadow-lg shadow-[#F97316]/20">
                   {/* <ImageWithFallback
                     src="https://images.unsplash.com/photo-1737575655055-e3967cbefd03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjQ4NzE2ODh8MA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="Profile"
@@ -51,12 +51,12 @@ export default function DevProfileCard() {
     
               {/* Name & Title */}
               <div>
-                <h1 className="text-white mb-1">Blaike A. Bradford</h1>
-                <p className="text-[#FB923C]">Full Stack Software Engineer</p>
+                <h1 className="text-white text-xl md:text-2xl lg:text-3xl mb-1">Blaike A. Bradford</h1>
+                <p className="text-[#FB923C] text-sm md:text-base">Full Stack Software Engineer</p>
               </div>
     
               {/* Bio */}
-              <p className="text-[#D1D5DB] text-sm leading-relaxed">
+              <p className="text-[#D1D5DB] text-xs md:text-sm leading-relaxed">
               A passionate software engineer dedicated to crafting innovative solutions, fueled by a curiosity for emerging technologies and scientific advancements. 
               My goal is to leverage my skills to create impactful AI products that enhance user experiences and drive progress.
               </p>
@@ -64,14 +64,14 @@ export default function DevProfileCard() {
           </div>
     
           {/* Stats Cards */}
-          <div className="space-y-3">
+          <div className="space-y-2 md:space-y-3">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="rounded-lg p-4 border border-white/10"
+                className="rounded-lg p-3 md:p-4 border border-white/10"
                 style={{
                   background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
                   backdropFilter: 'blur(12px)',

@@ -38,7 +38,7 @@ interface ProjectDetailProps {
       <div className="min-h-screen relative">
         <JupiterBackground />
         
-        <div className="relative z-10 min-h-screen p-8">
+        <div className="relative z-10 min-h-screen p-4 md:p-6 lg:p-8">
           <div className="max-w-5xl mx-auto">
             {/* Back Button */}
             <motion.button
@@ -46,7 +46,8 @@ interface ProjectDetailProps {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               whileHover={{ scale: 1.05, x: -5 }}
-              className="flex items-center gap-2 mb-8 px-4 py-2 rounded-lg text-[#FDBA74] hover:text-[#F97316] transition-colors"
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 mb-4 md:mb-6 lg:mb-8 px-4 py-2.5 md:py-2 min-h-[44px] rounded-lg text-[#FDBA74] hover:text-[#F97316] transition-colors touch-manipulation"
               style={{
                 background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
                 backdropFilter: 'blur(12px)',
@@ -62,7 +63,7 @@ interface ProjectDetailProps {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="rounded-xl p-8 mb-6 border border-white/10"
+              className="rounded-lg md:rounded-xl p-4 md:p-6 lg:p-8 mb-4 md:mb-6 border border-white/10"
               style={{
                 background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
                 backdropFilter: 'blur(12px)',
@@ -75,8 +76,8 @@ interface ProjectDetailProps {
                     <GitGraph className="w-6 h-6 text-[#FB923C]" />
                   </div>
                   <div>
-                    <h1 className="text-white mb-2">{title}</h1>
-                    <p className="text-[#D1D5DB]">{description}</p>
+                    <h1 className="text-white text-xl md:text-2xl lg:text-3xl mb-2">{title}</h1>
+                    <p className="text-[#D1D5DB] text-sm md:text-base">{description}</p>
                   </div>
                 </div>
                 <a
@@ -90,11 +91,11 @@ interface ProjectDetailProps {
               </div>
   
               {/* Technologies */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
                 {technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-full bg-[#F97316]/10 border border-[#F97316]/20 text-[#FDBA74] text-sm"
+                    className="px-2 py-0.5 md:px-3 md:py-1 rounded-full bg-[#F97316]/10 border border-[#F97316]/20 text-[#FDBA74] text-xs md:text-sm"
                   >
                     {tech}
                   </span>
@@ -119,7 +120,7 @@ interface ProjectDetailProps {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="rounded-xl p-8 mb-6 border border-white/10"
+              className="rounded-lg md:rounded-xl p-4 md:p-6 lg:p-8 mb-4 md:mb-6 border border-white/10"
               style={{
                 background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
                 backdropFilter: 'blur(12px)',
@@ -170,7 +171,7 @@ interface ProjectDetailProps {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="rounded-xl p-8 mb-6 border border-white/10"
+              className="rounded-lg md:rounded-xl p-4 md:p-6 lg:p-8 mb-4 md:mb-6 border border-white/10"
               style={{
                 background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
                 backdropFilter: 'blur(12px)',
@@ -216,7 +217,7 @@ interface ProjectDetailProps {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="rounded-xl p-8 mb-6 border border-white/10"
+              className="rounded-lg md:rounded-xl p-4 md:p-6 lg:p-8 mb-4 md:mb-6 border border-white/10"
               style={{
                 background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
                 backdropFilter: 'blur(12px)',
@@ -225,7 +226,7 @@ interface ProjectDetailProps {
             >
               <h2 className="text-white mb-6">Journey & Learnings</h2>
   
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 {/* Ups */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">

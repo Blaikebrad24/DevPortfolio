@@ -13,7 +13,7 @@ export default function RecentProjectsList({ projects }: RecentProjectsListProps
 
 
     return (
-        <div className="flex-1 overflow-y-auto scrollbar-hide space-y-4 p-4">
+        <div className="flex-1 overflow-y-auto scrollbar-hide space-y-3 md:space-y-4 p-0 md:p-2 lg:p-4">
         {projects.map((project, index) => (
             <RecentProjectCard
             key={project.id}
