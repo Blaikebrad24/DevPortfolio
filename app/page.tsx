@@ -170,7 +170,7 @@ export default async function Home() {
                     maskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)",
                     WebkitMaskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)"
                   }}>
-                    <span className="btn-text">Connect on LinkedIn</span>
+                    <span className="btn-text">LinkedIn connect</span>
                   </button>
                 </a>
               </div>
