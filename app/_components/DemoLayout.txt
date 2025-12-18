@@ -1,0 +1,1244 @@
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sentra — Security, Reinvented</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root { --bg: #0a0a0a; }
+html, body { background: var(--bg); }
+body { font-family: 'Geist', Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+</style>
+<!-- Border Gradient -->
+<style>
+.border-gradient { position: relative; }
+.border-gradient::before {
+content: "";
+position: absolute;
+inset: 0;
+border-radius: 32px;
+padding: 1px;
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+background: linear-gradient(225deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.0) 100%);
+pointer-events: none;
+}
+</style>
+<!-- Animation Keyframe -->
+<style>
+@keyframes fadeSlideIn {
+0% {
+opacity: 0;
+transform: translateY(30px);
+filter: blur(8px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+filter: blur(0px);
+}
+}
+</style>
+<!-- Animation on Scroll -->
+<script>
+(function () {
+const style = document.createElement("style");
+style.textContent = `
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+`;
+document.head.appendChild(style);
+const once = true;
+if (!window.__inViewIO) {
+window.__inViewIO = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add("animate");
+if (once) window.__inViewIO.unobserve(entry.target);
+}
+});
+}, { threshold: 0.2, rootMargin: "0px 0px -10% 0px" });
+}
+window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+document.querySelectorAll(selector).forEach((el) => {
+window.__inViewIO.observe(el);
+});
+};
+document.addEventListener("DOMContentLoaded", () => initInViewAnimations());
+})();
+</script>
+<!-- Iconify (Solar Duotone Line) -->
+<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+<meta name="disabled-font-classes" content="font-geist,font-roboto,font-montserrat,font-poppins,font-playfair,font-instrument-serif,font-merriweather,font-bricolage,font-jakarta,font-manrope,font-space-grotesk,font-work-sans,font-pt-serif,font-geist-mono,font-space-mono,font-quicksand,font-nunito"><style id="border-gradient-shared-style">
+[style*="--border-gradient"]::before {
+content: "";
+position: absolute;
+inset: 0;
+padding: 1px;
+border-radius: var(--border-radius-before, inherit);
+-webkit-mask: linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+background: var(--border-gradient);
+pointer-events: none;
+}</style></head>
+  <body class="min-h-screen text-neutral-200 antialiased selection:bg-indigo-500/30 selection:text-white">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Background (component) added by Aura -->
+<div class="aura-background-component fixed top-0 w-full h-screen saturate-0 brightness-150" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div class="aura-background-component top-0 w-full -z-10 absolute h-full">
+  <div data-us-project="ILgOO23w4wEyPQOKyLO4" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+  <script type="text/javascript">
+    !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+  </script>
+</div></div>
+    <!-- Header -->
+    <header class="z-20 relative">
+      <nav class="sm:px-6 lg:px-8 sm:pt-6 max-w-7xl mr-auto ml-auto pt-4 pr-4 pl-4">
+        <div class="flex border-gradient fixed w-[calc(100%-2rem)] sm:w-auto sm:max-w-3xl sm:rounded-[32px] sm:right-0 sm:left-0 sm:gap-x-4 bg-neutral-900/40 h-16 rounded-[24px] mr-auto ml-auto pt-2 pr-0 pb-2 pl-5 top-4 right-4 left-4 backdrop-blur-lg gap-x-2 gap-y-x-2 items-center justify-between">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <div class="bg-center sm:w-7 sm:h-7 flex-shrink-0 w-6 h-6 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dda527a3-a7cd-4e3f-a750-90f31be3dde0_320w.webp)] bg-cover ring-neutral-50/10 ring-1 rounded-xl"></div>
+            <span class="text-xs sm:text-sm font-medium text-white tracking-tight">SENTRA</span>
+          </div>
+          <div class="hidden md:flex items-center gap-4 lg:gap-6 text-sm text-neutral-300">
+            <a class="hover:text-white transition-colors cursor-pointer">Features</a>
+            <a class="hover:text-white transition-colors cursor-pointer">Docs</a>
+            <a class="hover:text-white transition-colors cursor-pointer">Pricing</a>
+          </div>
+          <a href="#" class="btn-wrapper-nav" style="--dot-size: 6px; --line-weight: 1px; --line-distance: 0.6rem 0.8rem; --animation-speed: 0.35s; --dot-color: #fffa; --line-color: #fffa; --grid-color: #fff3; position: relative; display: inline-flex; justify-content: center; align-items: center; width: auto; height: auto; padding: var(--line-distance); background-color: rgba(0, 0, 0, 0); user-select: none">
+            <div class="line horizontal top"></div>
+            <div class="line vertical right"></div>
+            <div class="line horizontal bottom"></div>
+            <div class="line vertical left"></div>
+            <div class="dot top left"></div>
+            <div class="dot top right"></div>
+            <div class="dot bottom right"></div>
+            <div class="dot bottom left"></div>
+            <button class="btn bg-transparent" style="mask-image: linear-gradient(110deg, transparent, black 35%, black 65%, transparent); -webkit-mask-image: linear-gradient(110deg, transparent, black 35%, black 65%, transparent);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="btn-svg" style="width: 14px; height: 14px; color: #fff4; flex-shrink: 0;" data-icon-set="solar" data-solar="login-2-line-duotone"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="M2.001 11.999h14m0 0l-3.5-3m3.5 3l-3.5 3"></path><path d="M9.002 7c.012-2.175.109-3.353.877-4.121C10.758 2 12.172 2 15 2h1c2.829 0 4.243 0 5.122.879C22 3.757 22 5.172 22 8v8c0 2.828 0 4.243-.878 5.121C20.242 22 18.829 22 16 22h-1c-2.828 0-4.242 0-5.121-.879c-.768-.768-.865-1.946-.877-4.121" opacity=".5"></path></g></svg>
+              <span class="btn-text">Sign in</span>
+            </button>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Progressive Blur Top -->
+    <div id="wrapper" class="">
+      <div class="gradient-blur">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+      <style class="">
+        .gradient-blur { position: fixed; z-index: 5; inset: 0 0 auto 0; height: 12%; pointer-events: none; }
+        .gradient-blur>div, .gradient-blur::before, .gradient-blur::after { position: absolute; inset: 0; }
+        .gradient-blur::before { content: ""; z-index: 1; backdrop-filter: blur(0.5px); mask: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12.5%, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 37.5%); }
+        .gradient-blur>div:nth-of-type(1) { z-index: 2; backdrop-filter: blur(1px); mask: linear-gradient(to top, rgba(0,0,0,0) 12.5%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 37.5%, rgba(0,0,0,0) 50%); }
+        .gradient-blur>div:nth-of-type(2) { z-index: 3; backdrop-filter: blur(2px); mask: linear-gradient(to top, rgba(0,0,0,0) 25%, rgba(0,0,0,1) 37.5%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 62.5%); }
+        .gradient-blur>div:nth-of-type(3) { z-index: 4; backdrop-filter: blur(4px); mask: linear-gradient(to top, rgba(0,0,0,0) 37.5%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 62.5%, rgba(0,0,0,0) 75%); }
+        .gradient-blur>div:nth-of-type(4) { z-index: 5; backdrop-filter: blur(8px); mask: linear-gradient(to top, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 62.5%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 87.5%); }
+        .gradient-blur>div:nth-of-type(5) { z-index: 6; backdrop-filter: blur(16px); mask: linear-gradient(to top, rgba(0,0,0,0) 62.5%, rgba(0,0,0,1) 75%, rgba(0,0,0,1) 87.5%, rgba(0,0,0,0) 100%); }
+        .gradient-blur>div:nth-of-type(6) { z-index: 7; backdrop-filter: blur(32px); mask: linear-gradient(to top, rgba(0,0,0,0) 75%, rgba(0,0,0,1) 87.5%, rgba(0,0,0,1) 100%); }
+        .gradient-blur::after { content: ""; z-index: 8; backdrop-filter: blur(64px); mask: linear-gradient(to top, rgba(0,0,0,0) 87.5%, rgba(0,0,0,1) 100%); }
+      </style>
+    </div>
+
+    <!-- Background glows -->
+    
+
+    <main class="relative"> 
+      <section class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mt-24 sm:mt-28 lg:mt-32 mb-12 sm:mb-16 lg:mb-20">
+        <!-- Top feature chips -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
+          <!-- Card 1 -->
+          <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.05s_both] flex flex-col animate bg-neutral-900/40 h-48 sm:h-56 lg:h-64 rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 backdrop-blur-lg justify-between">
+            <div class="flex items-center">
+              <span class="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="sm:w-5 sm:h-5" style="color: #e5e7eb;" data-icon-set="solar" data-solar="bolt-circle-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="m9.213 10.174l2.015-1.605c1.302-1.037 1.953-1.556 2.363-1.3s.197 1.05-.228 2.636l-.04.15c-.154.572-.23.858-.096 1.086l.007.012c.14.226.438.306 1.033.465c1.072.287 1.608.43 1.702.804l.004.019c.083.376-.34.712-1.185 1.386l-2.015 1.604c-1.303 1.038-1.954 1.556-2.364 1.3s-.196-1.05.229-2.636l.04-.15c.153-.571.23-.857.095-1.086l-.007-.012c-.14-.225-.438-.305-1.033-.465c-1.072-.287-1.608-.43-1.702-.804l-.004-.019c-.083-.375.34-.712 1.186-1.385Z"></path><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12Z" opacity=".5"></path></g></svg>
+              </span>
+            </div>
+            <div class="">
+              <h3 class="mt-1 sm:mt-2 text-xs sm:text-sm font-semibold tracking-tight text-white">Setup in minutes</h3>
+              <p class="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400 leading-relaxed">Drop-in SDK, no backend rewrites.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.1s_both] flex flex-col animate bg-neutral-900/40 h-48 sm:h-56 lg:h-64 rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 backdrop-blur-lg justify-between">
+            <div class="flex items-center">
+              <span class="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="sm:w-5 sm:h-5" style="color: #e5e7eb;" data-icon-set="solar" data-solar="chart-2-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 22h18" opacity=".5"></path><path d="M3 11c0-.943 0-1.414.293-1.707S4.057 9 5 9s1.414 0 1.707.293S7 10.057 7 11v6c0 .943 0 1.414-.293 1.707S5.943 19 5 19s-1.414 0-1.707-.293S3 17.943 3 17zm7-4c0-.943 0-1.414.293-1.707S11.057 5 12 5s1.414 0 1.707.293S14 6.057 14 7v10c0 .943 0 1.414-.293 1.707S12.943 19 12 19s-1.414 0-1.707-.293S10 17.943 10 17zm7-3c0-.943 0-1.414.293-1.707S18.057 2 19 2s1.414 0 1.707.293S21 3.057 21 4v13c0 .943 0 1.414-.293 1.707S19.943 19 19 19s-1.414 0-1.707-.293S17 17.943 17 17z"></path></g></svg>
+              </span>
+            </div>
+            <div class="">
+              <h3 class="mt-1 sm:mt-2 text-xs sm:text-sm font-semibold tracking-tight text-white">Track anomalies</h3>
+              <p class="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400 leading-relaxed">Real‑time behavior signals.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.15s_both] flex flex-col animate bg-neutral-900/40 h-48 sm:h-56 lg:h-64 rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 backdrop-blur-lg justify-between">
+            <div class="flex items-center">
+              <span class="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="sm:w-5 sm:h-5" style="color: #e5e7eb;" data-icon-set="solar" data-solar="wallet-money-line-duotone"><g fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 9h4" opacity=".5"></path><path stroke-width="1.5" d="M20.833 10h-2.602C16.446 10 15 11.343 15 13s1.447 3 3.23 3h2.603c.084 0 .125 0 .16-.002c.54-.033.97-.432 1.005-.933c.002-.032.002-.071.002-.148v-3.834c0-.077 0-.116-.002-.148c-.036-.501-.465-.9-1.005-.933c-.035-.002-.076-.002-.16-.002Z"></path><path stroke-width="1.5" d="M20.965 10c-.078-1.872-.328-3.02-1.137-3.828C18.657 5 16.771 5 13 5h-3C6.229 5 4.343 5 3.172 6.172S2 9.229 2 13s0 5.657 1.172 6.828S6.229 21 10 21h3c3.771 0 5.657 0 6.828-1.172c.809-.808 1.06-1.956 1.137-3.828"></path><path stroke-linecap="round" stroke-width="1.5" d="m6 5l3.735-2.477a3.24 3.24 0 0 1 3.53 0L17 5" opacity=".5"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.991 13H18" opacity=".5"></path></g></svg>
+              </span>
+            </div>
+            <div class="">
+              <h3 class="mt-1 sm:mt-2 text-xs sm:text-sm font-semibold tracking-tight text-white">Optimized spend</h3>
+              <p class="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400 leading-relaxed">Smart policies reduce risk cost.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] flex flex-col animate bg-neutral-900/40 h-48 sm:h-56 lg:h-64 rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 backdrop-blur-lg justify-between">
+            <div class="flex items-center">
+              <span class="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="sm:w-5 sm:h-5" style="color: #e5e7eb;" data-icon-set="solar" data-solar="code-circle-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10Z" opacity=".5"></path><path stroke-linecap="round" d="m15.5 9l.172.172c1.333 1.333 2 2 2 2.828s-.667 1.495-2 2.828L15.5 15m-2.206-7.83L12 12l-1.294 4.83M8.5 9l-.172.172c-1.333 1.333-2 2-2 2.828s.667 1.495 2 2.828L8.5 15"></path></g></svg>
+              </span>
+            </div>
+            <div class="">
+              <h3 class="mt-1 sm:mt-2 text-xs sm:text-sm font-semibold tracking-tight text-white">Open core</h3>
+              <p class="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400 leading-relaxed">Transparent by default.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero -->
+        <div class="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 border-gradient p-3 sm:p-4 animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.25s_both] animate bg-neutral-900/40 rounded-[24px] sm:rounded-[32px] backdrop-blur-lg items-stretch">
+          <!-- Visual -->
+          <div class="relative overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[32px] min-h-[240px] sm:min-h-[280px] md:min-h-[520px]">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3c47338a-7702-4975-a53f-3bcd74163776_1600w.webp" alt="Abstract face render" class="absolute inset-0 h-full w-full object-cover" loading="eager" style="">
+            <div class="bg-gradient-to-t from-black/60 via-black/10 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+            <div class="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)]; [background-size:28px_28px]"></div>
+            <div class="absolute left-3 sm:left-4 bottom-3 sm:bottom-4 flex items-center gap-2">
+              <span class="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg sm:rounded-xl bg-white/10 backdrop-blur flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" class="sm:w-4 sm:h-4" style="color: #fff;" data-icon-set="solar" data-solar="shield-network-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2s1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 5.638-4.239 8.375-6.899 9.536C13.38 21.842 13.02 22 12 22s-1.38-.158-2.101-.473C7.239 20.365 3 17.63 3 11.991z" opacity=".5"></path><path d="M17 12a5 5 0 1 1-9.999 0A5 5 0 0 1 17 12Z"></path><path d="M13.848 13.913c.1-.606.152-1.256.152-1.913s-.052-1.307-.152-1.913a8 8 0 0 0-.434-1.623c-.185-.464-.406-.832-.649-1.083C12.523 7.129 12.263 7 12 7s-.523.13-.765.38c-.243.252-.463.62-.65 1.084a8 8 0 0 0-.433 1.623c-.1.606-.152 1.256-.152 1.913s.052 1.307.152 1.913s.248 1.158.434 1.623c.185.464.406.832.649 1.083c.242.252.502.381.765.381s.523-.13.765-.38c.243-.252.463-.62.65-1.085a8 8 0 0 0 .433-1.622Z"></path><path stroke-linecap="round" d="M7 12h10"></path></g></svg>
+              </span>
+              <p class="text-[10px] sm:text-xs text-neutral-200">Adaptive identity graph</p>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="flex flex-col sm:p-6 md:p-8 pt-4 pr-4 pb-4 pl-4 justify-center">
+            <div class="flex items-center gap-2 text-[10px] sm:text-xs text-neutral-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" class="sm:w-4 sm:h-4 flex-shrink-0" style="" data-icon-set="solar" data-solar="stars-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="m9.99 16.5l-.975.474c-1.98.548-2.971.822-3.505.245c-.534-.576-.258-1.62.295-3.71l.142-.54c.157-.595.236-.891.197-1.186c-.04-.294-.193-.553-.499-1.07l-.278-.47C4.29 8.422 3.752 7.512 4.11 6.787c.36-.724 1.379-.783 3.418-.9l.527-.03c.58-.034.869-.05 1.122-.185c.252-.135.439-.372.813-.848l.34-.432c1.316-1.673 1.974-2.509 2.73-2.38s1.11 1.137 1.817 3.154l.183.522c.201.573.302.86.497 1.07c.196.212.464.324 1.001.547l.489.204c1.89.786 2.835 1.18 2.942 1.983c.092.686-.477 1.283-1.64 2.29" opacity=".5"></path><path d="M15.252 10.689c-.987-1.18-1.48-1.77-2.048-1.68c-.567.091-.832.803-1.362 2.227l-.138.368c-.15.405-.226.607-.373.756c-.146.149-.348.228-.75.386l-.367.143c-1.417.555-2.126.833-2.207 1.4s.52 1.049 1.721 2.011l.31.25c.342.273.513.41.611.597c.1.187.115.404.146.837l.029.394c.11 1.523.166 2.285.683 2.545s1.154-.155 2.427-.983l.329-.215c.362-.235.543-.353.75-.387c.208-.033.42.022.841.132l.385.1c1.485.386 2.228.58 2.629.173s.193-1.144-.221-2.62l-.108-.38c-.117-.42-.176-.63-.147-.837c.03-.208.145-.39.374-.756l.21-.332c.807-1.285 1.21-1.927.94-2.438c-.269-.511-1.033-.553-2.562-.635l-.396-.022c-.434-.023-.652-.035-.841-.13c-.19-.095-.33-.263-.61-.599z"></path></g></svg>
+              <span class="">New in 2.7 — Lattice scoring</span>
+            </div>
+            <h1 class="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white tracking-tighter font-light leading-tight">
+              Security, Reinvented
+            </h1>
+            <p class="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-neutral-400 leading-relaxed">
+              Sentra delivers verifiable protection for modern apps. Privacy‑first, open, and community‑audited. Own your data, control every policy, and prove compliance with a single click.
+            </p>
+            <div class="sm:mt-6 flex flex-col lg:flex-row lg:items-center mt-6 gap-x-3 gap-y-3 items-stretch">
+              <!-- Animated Gradient Button -->
+              <button type="button" class="gradient-button">
+                <div class="points_wrapper">
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                </div>
+                <span class="inner">
+                  Start free
+                  <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </span>
+              </button>
+
+              <!-- Animated Border Button -->
+              <a href="#" class="btn-wrapper" style="--dot-size: 8px; --line-weight: 1px; --line-distance: 0.8rem 1rem; --animation-speed: 0.35s; --dot-color: #fffa; --line-color: #fffa; --grid-color: #fff3; position: relative; display: inline-flex; justify-content: center; align-items: center; width: auto; height: auto; padding: var(--line-distance); background-color: rgba(0, 0, 0, 0); user-select: none">
+                <div class="line horizontal top"></div>
+                <div class="line vertical right"></div>
+                <div class="line horizontal bottom"></div>
+                <div class="line vertical left"></div>
+                <div class="dot top left"></div>
+                <div class="dot top right"></div>
+                <div class="dot bottom right"></div>
+                <div class="dot bottom left"></div>
+                <button class="btn bg-transparent" style="mask-image: linear-gradient(110deg, transparent, black 35%, black 65%, transparent); -webkit-mask-image: linear-gradient(110deg, transparent, black 35%, black 65%, transparent);">
+                  <span class="btn-text">Run the demo</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="btn-svg" style="margin-left: .5rem; width: 18px; height: 18px; color: #fff4; flex-shrink: 0;" data-icon-set="solar" data-solar="code-square-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="m15.5 9l.172.172c1.333 1.333 2 2 2 2.828s-.667 1.495-2 2.828L15.5 15m-2.206-7.83L12 12l-1.294 4.83M8.5 9l-.172.172c-1.333 1.333-2 2-2 2.828s.667 1.495 2 2.828L8.5 15"></path><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z" opacity=".5"></path></g></svg>
+                </button>
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-6 sm:mt-7 grid grid-cols-3 gap-3 sm:gap-4">
+              <div class="border-gradient before:rounded-[16px] sm:before:rounded-[20px] md:before:rounded-[24px] bg-neutral-900/60 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-3 sm:p-4">
+                <p class="text-[9px] sm:text-[10px] text-neutral-400">Active</p>
+                <p class="text-base font-semibold text-white tracking-tight mt-0.5 sm:mt-1 sm:text-lg md:text-sm">46k+</p>
+                <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400">Developers</p>
+              </div>
+              <div class="border-gradient before:rounded-[16px] sm:before:rounded-[20px] md:before:rounded-[24px] bg-neutral-900/60 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-3 sm:p-4">
+                <p class="text-[9px] sm:text-[10px] text-neutral-400">Uptime</p>
+                <p class="text-base font-semibold text-white tracking-tight mt-0.5 sm:mt-1 sm:text-lg md:text-sm">99.99%</p>
+                <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400">Last 12 months</p>
+              </div>
+              <div class="border-gradient before:rounded-[16px] sm:before:rounded-[20px] md:before:rounded-[24px] bg-neutral-900/60 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-3 sm:p-4">
+                <p class="text-[9px] sm:text-[10px] text-neutral-400">Encryption</p>
+                <p class="mt-0.5 text-base font-semibold tracking-tight text-white sm:mt-1 sm:text-lg md:text-sm">AES‑256</p>
+                <p class="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400">At rest &amp; transit</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lower info cards -->
+        <div class="mt-3 sm:mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+          <!-- Card 1 -->
+          <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.1s_both] flex flex-col overflow-hidden bg-neutral-900/40 h-[320px] sm:h-[360px] md:h-[400px] rounded-[24px] sm:rounded-[32px] ring-white/10 ring-1 justify-between animate">
+            <div class="h-full relative">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c18c71a7-b8f4-4628-881d-cf4f8c40d365_1600w.webp" alt="Security visual" class="absolute inset-0 h-full w-full object-cover" style="">
+              <div class="bg-gradient-to-t from-black/90 via-black/50 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+              <div class="flex flex-col sm:p-5 h-full pt-4 pr-4 pb-4 pl-4 relative justify-end">
+                <div class="flex items-start gap-2 sm:gap-3">
+                  <span class="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-emerald-500/15 backdrop-blur text-emerald-300 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="sm:w-5 sm:h-5" style="" data-icon-set="solar" data-solar="lock-keyhole-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16c0-2.828 0-4.243.879-5.121C3.757 10 5.172 10 8 10h8c2.828 0 4.243 0 5.121.879C22 11.757 22 13.172 22 16s0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16Z"></path><circle cx="12" cy="16" r="2" opacity=".5"></circle><path stroke-linecap="round" d="M6 10V8a6 6 0 1 1 12 0v2" opacity=".5"></path></g></svg>
+                  </span>
+                  <div>
+                    <h4 class="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">Zero-trust by design</h4>
+                    <p class="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Hardware-backed keys, just‑in‑time access, and continuous verification.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.15s_both] flex flex-col overflow-hidden bg-neutral-900/40 h-[320px] sm:h-[360px] md:h-[400px] rounded-[24px] sm:rounded-[32px] ring-white/10 ring-1 justify-between animate">
+            <div class="h-full relative">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dda527a3-a7cd-4e3f-a750-90f31be3dde0_1600w.webp" alt="Open source visual" class="absolute inset-0 h-full w-full object-cover" style="">
+              <div class="bg-gradient-to-t from-black/90 via-black/50 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+              <div class="flex flex-col sm:p-5 h-full pt-4 pr-4 pb-4 pl-4 relative justify-end">
+                <div class="flex items-start gap-2 sm:gap-3">
+                  <span class="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-indigo-500/15 backdrop-blur text-indigo-300 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="sm:w-5 sm:h-5" style="" data-icon-set="solar" data-solar="code-file-line-duotone"><g fill="none"><path fill="currentColor" d="m15.393 4.054l-.502.557zm3.959 3.563l-.502.557zm2.302 2.537l-.685.305zM3.172 20.828l.53-.53zm17.656 0l-.53-.53zM14 21.25h-4v1.5h4zM2.75 14v-4h-1.5v4zm18.5-.437V14h1.5v-.437zM14.891 4.61l3.959 3.563l1.003-1.115l-3.958-3.563zm7.859 8.952c0-1.689.015-2.758-.41-3.714l-1.371.61c.266.598.281 1.283.281 3.104zm-3.9-5.389c1.353 1.218 1.853 1.688 2.119 2.285l1.37-.61c-.426-.957-1.23-1.66-2.486-2.79zM10.03 2.75c1.582 0 2.179.012 2.71.216l.538-1.4c-.852-.328-1.78-.316-3.248-.316zm5.865.746c-1.086-.977-1.765-1.604-2.617-1.93l-.537 1.4c.532.204.98.592 2.15 1.645zM10 21.25c-1.907 0-3.261-.002-4.29-.14c-1.005-.135-1.585-.389-2.008-.812l-1.06 1.06c.748.75 1.697 1.081 2.869 1.239c1.15.155 2.625.153 4.489.153zM1.25 14c0 1.864-.002 3.338.153 4.489c.158 1.172.49 2.121 1.238 2.87l1.06-1.06c-.422-.424-.676-1.004-.811-2.01c-.138-1.027-.14-2.382-.14-4.289zM14 22.75c1.864 0 3.338.002 4.489-.153c1.172-.158 2.121-.49 2.87-1.238l-1.06-1.06c-.424.422-1.004.676-2.01.811c-1.027.138-2.382.14-4.289.14zM21.25 14c0 1.907-.002 3.262-.14 4.29c-.135 1.005-.389 1.585-.812 2.008l1.06 1.06c.75-.748 1.081-1.697 1.239-2.869c.155-1.15.153-2.625.153-4.489zm-18.5-4c0-1.907.002-3.261.14-4.29c.135-1.005.389-1.585.812-2.008l-1.06-1.06c-.75.748-1.081 1.697-1.239 2.869C1.248 6.661 1.25 8.136 1.25 10zm7.28-8.75c-1.875 0-3.356-.002-4.511.153c-1.177.158-2.129.49-2.878 1.238l1.06 1.06c.424-.422 1.005-.676 2.017-.811c1.033-.138 2.395-.14 4.312-.14z"></path><path stroke="currentColor" stroke-width="1.5" d="M13 2.5V5c0 2.357 0 3.536.732 4.268S15.643 10 18 10h4" opacity=".5"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m7 14l-1 1l1 1m4.5 0l1 1l-1 1M10 14l-1.5 4" opacity=".5"></path></g></svg>
+                  </span>
+                  <div class="">
+                    <h4 class="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">Built in public</h4>
+                    <p class="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Auditable code, community RFCs, and verifiable releases.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sm:px-6 sm:mt-10 sm:mb-20 lg:px-8 lg:ml-auto lg:mr-auto lg:mt-48 z-10 max-w-7xl mt-8 mr-auto mb-16 ml-auto pr-4 pl-4">
+  <!-- Trusted bar -->
+<div class="animate-on-scroll [animation:fadeSlideIn_0.7s_ease-out_0.05s_both] border-gradient sm:rounded-[24px] sm:p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 animate bg-neutral-900/40 rounded-[20px] pt-3 pr-3 pb-3 pl-3 backdrop-blur gap-x-3 gap-y-3">
+  <div class="flex items-center gap-2 text-[10px] sm:text-xs text-neutral-300">
+    <span class="inline-flex h-2 w-2 rounded-full bg-orange-400/80"></span>
+    <span>Trusted by engineering-led teams</span>
+  </div>
+  <div class="w-full flex-1 overflow-hidden">
+    <div class="overflow-hidden relative">
+      <div style="mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);" class="">
+        <div class="flex gap-6 will-change-transform animate-[marquee-left_30s_linear_infinite] gap-x-6 gap-y-6">
+          <div class="flex gap-6 shrink-0 gap-x-0 sm:gap-x-6 lg:gap-x-20 gap-y-6">
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e5f2922d-4fb6-4f7c-8795-cd9ba63105a4_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92287bc0-bc70-4864-bf05-a89c1b99a218_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8284c62f-bfed-4d35-aaa2-956d0a8969b3_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[120px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3764a6eb-78e1-495f-9143-c85a648446c4_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[120px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dea31d52-7076-423f-bace-53eeec3014d3_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b16a9cf6-6be1-4d0d-bc63-07a471092998_1600w.png)] bg-cover rounded-lg"></a>
+          </div>
+          <div class="flex shrink-0 gap-x-0 sm:gap-x-6 lg:gap-x-20 gap-y-6">
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e5f2922d-4fb6-4f7c-8795-cd9ba63105a4_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92287bc0-bc70-4864-bf05-a89c1b99a218_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8284c62f-bfed-4d35-aaa2-956d0a8969b3_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[100px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3764a6eb-78e1-495f-9143-c85a648446c4_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[100px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dea31d52-7076-423f-bace-53eeec3014d3_1600w.png)] bg-cover rounded-lg"></a>
+            <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b16a9cf6-6be1-4d0d-bc63-07a471092998_1600w.png)] bg-cover rounded-lg"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Heading + CTA -->
+  <div class="sm:mt-10 grid md:grid-cols-3 animate-on-scroll [animation:fadeSlideIn_0.7s_ease-out_0.1s_both] mt-10 gap-x-6 gap-y-6 items-start animate">
+    <div class="md:col-span-2">
+      <h2 class="leading-tight sm:text-4xl lg:text-7xl text-3xl font-light text-white tracking-tighter">
+        Solutions Tailored to Your Stack
+      </h2>
+    </div>
+    <div class="flex md:justify-end">
+      <div class="max-w-sm">
+        <p class="sm:text-sm leading-relaxed text-xs text-neutral-400">
+          We turn noisy signals into clear decisions. Compose what you need, ship faster, and prove security outcomes anytime.
+        </p>
+        <div class="mt-3">
+          <a href="#" class="btn-wrapper" style="--dot-size: 8px; --line-weight: 1px; --line-distance: 0.8rem 1rem; --animation-speed: 0.35s; --dot-color: #fffa; --line-color: #fffa; --grid-color: #fff3; position: relative; display: inline-flex; justify-content: center; align-items: center; width: auto; height: auto; padding: var(--line-distance); background-color: rgba(0, 0, 0, 0); user-select: none">
+            <div class="line horizontal top"></div>
+            <div class="line vertical right"></div>
+            <div class="line horizontal bottom"></div>
+            <div class="line vertical left"></div>
+            <div class="dot top left"></div>
+            <div class="dot top right"></div>
+            <div class="dot bottom right"></div>
+            <div class="dot bottom left"></div>
+            <button class="btn bg-transparent" style="mask-image: linear-gradient(110deg, transparent, black 35%, black 65%, transparent); -webkit-mask-image: linear-gradient(110deg, transparent, black 35%, black 65%, transparent);">
+              <span class="btn-text">Get Started</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="btn-svg" style="margin-left:.5rem;width:18px;height:18px;color:#fff4;flex-shrink:0;" data-icon-set="solar" data-solar="arrow-right-up-line-duotone"><g fill="none" class=""><path fill="currentColor" d="M5.47 17.47a.75.75 0 1 0 1.06 1.06zm1.06 1.06l12-12l-1.06-1.06l-12 12z" opacity=".5" class=""></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 6h9v9"></path></g></svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid grid-cols-1 sm:mt-8 sm:gap-4 md:grid-cols-4 md:mt-48 mt-6 gap-x-3 gap-y-3">
+    <!-- Card 1 -->
+    <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.05s_both] sm:rounded-[30px] sm:p-5 min-h-[180px] flex flex-col pt-4 pr-4 pb-4 pl-4 backdrop-blur justify-between animate">
+      <div class="flex gap-2 text-neutral-300 gap-x-2 gap-y-2 items-center">
+        <span class="inline-flex items-center justify-center bg-white/10 w-8 h-8 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="color: rgb(212, 212, 212); width: 16px; height: 16px" class="w-[16px] h-[16px]" data-solar="folder-path-connect-line-duotone" data-icon-set="solar" data-icon-replaced="true" stroke-width="2"><g fill="none" stroke="#d4d4d4" stroke-width="1.5"><path stroke-linecap="round" d="M16.5 7.5h-3" opacity=".5"></path><path d="M5 5.217c0-.573 0-.86.049-1.099c.213-1.052 1.1-1.874 2.232-2.073C7.538 2 7.847 2 8.465 2c.27 0 .406 0 .536.011c.56.049 1.093.254 1.526.587c.1.078.196.167.388.344l.385.358c.571.53.857.795 1.198.972q.284.146.594.228c.377.1.78.1 1.588.1h.261c1.843 0 2.765 0 3.363.5q.083.07.157.146C19 5.802 19 6.658 19 8.369V9.8c0 2.451 0 3.677-.82 4.438c-.82.762-2.14.762-4.78.762h-2.8c-2.64 0-3.96 0-4.78-.761C5 13.477 5 12.25 5 9.8z"></path><path stroke-linecap="round" d="M22 20h-8M2 20h8m2-2v-3" opacity=".5"></path><circle cx="12" cy="20" r="2"></circle></g></svg>
+        </span>
+      </div>
+      <div class="">
+        <h3 class="text-base font-semibold text-white tracking-tight mt-48 sm:text-2xl">Identity Intelligence</h3>
+        <p class="mt-1 text-xs sm:text-sm text-neutral-400 leading-relaxed">Correlate devices, accounts, and behavior to block takeovers.</p>
+      </div>
+    </div>
+
+    <!-- Card 2 (Highlighted) -->
+    <div class="animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.1s_both] relative rounded-[22px] sm:rounded-[28px] p-0 animate">
+      <div class="absolute inset-0 blur-2xl opacity-60 bg-gradient-to-br from-white/10 via-white/0 to-white/10 rounded-[28px] pointer-events-none"></div>
+      <div class="sm:rounded-[24px] sm:p-5 min-h-[180px] hover:rotate-0 transition bg-center text-neutral-900 bg-white bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6bffc319-1a2d-4422-a676-f7e56a1f1002_1600w.webp)] bg-cover rounded-[20px] pt-4 pr-4 pb-4 pl-4 relative shadow-[0_10px_50px_-12px_rgba(255,255,255,0.35)] -rotate-1">
+        <div class="flex gap-2 text-neutral-800 gap-x-2 gap-y-2 items-center">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-neutral-900/5">
+            <iconify-icon icon="solar:wand-2-line-duotone" width="16" height="16"></iconify-icon>
+          </span>
+        </div>
+        <div class="mt-8">
+          <h3 class="text-base font-semibold tracking-tight mt-48 sm:text-xl">Risk Automation</h3>
+          <p class="mt-1 text-xs sm:text-sm text-neutral-600 leading-relaxed">Automate decisions with lattice scoring and adaptive policies.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.15s_both] min-h-[180px] flex flex-col sm:rounded-[24px] sm:p-5 rounded-[20px] pt-4 pr-4 pb-4 pl-4 backdrop-blur justify-between animate">
+      <div class="flex gap-2 text-neutral-300 gap-x-2 gap-y-2 items-center">
+        <span class="inline-flex items-center justify-center bg-white/10 w-8 h-8 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="" style="" data-icon-set="solar" data-solar="shield-plus-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2s1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 5.638-4.239 8.375-6.899 9.536C13.38 21.842 13.02 22 12 22s-1.38-.158-2.101-.473C7.239 20.365 3 17.63 3 11.991z" opacity=".5"></path><path stroke-linecap="round" d="M15 12h-3m0 0H9m3 0V9m0 3v3"></path></g></svg>
+        </span>
+      </div>
+      <div class="">
+        <h3 class="text-base font-semibold tracking-tight text-white sm:text-2xl">API Shielding</h3>
+        <p class="sm:text-sm leading-relaxed text-xs text-neutral-400 mt-1">Protect public and internal APIs with intent-aware controls.</p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] min-h-[180px] flex flex-col sm:rounded-[24px] sm:p-5 rounded-[20px] pt-4 pr-4 pb-4 pl-4 backdrop-blur justify-between animate">
+      <div class="flex items-center gap-2 text-neutral-300">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="" style="" data-icon-set="solar" data-solar="document-text-line-duotone"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10c0-3.771 0-5.657 1.172-6.828S7.229 2 11 2h2c3.771 0 5.657 0 6.828 1.172S21 6.229 21 10v4c0 3.771 0 5.657-1.172 6.828S16.771 22 13 22h-2c-3.771 0-5.657 0-6.828-1.172S3 17.771 3 14z" opacity=".5"></path><path stroke-linecap="round" d="M8 12h8M8 8h8m-8 8h5"></path></g></svg>
+        </span>
+      </div>
+      <div class="">
+        <h3 class="sm:text-2xl text-base font-semibold text-white tracking-tight">Compliance Reports</h3>
+        <p class="mt-1 text-xs sm:text-sm text-neutral-400 leading-relaxed">One‑click, audit‑ready evidence across SOC 2, ISO, and HIPAA.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="sm:mt-8 grid grid-cols-3 sm:gap-4 animate-on-scroll [animation:fadeSlideIn_0.7s_ease-out_0.05s_both] mt-8 gap-x-3 gap-y-3 animate">
+    <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+      <p class="text-[10px] sm:text-xs text-neutral-400">Events/day</p>
+      <p class="sm:text-lg md:text-xl text-base font-semibold text-white tracking-tight mt-0.5">12.3B</p>
+      <p class="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Processed securely</p>
+    </div>
+    <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+      <p class="text-[10px] sm:text-xs text-neutral-400">Avg decision</p>
+      <p class="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white">37ms</p>
+      <p class="text-[10px] sm:text-xs text-neutral-400 mt-0.5">P95 latency</p>
+    </div>
+    <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+      <p class="text-[10px] sm:text-xs text-neutral-400">Attack recall</p>
+      <p class="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white">98.7%</p>
+      <p class="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Across benchmark sets</p>
+    </div>
+  </div>
+</section><section class="sm:px-6 sm:mt-16 lg:px-8 lg:ml-auto lg:mr-auto lg:mt-40 lg:mb-40 max-w-7xl mt-10 mr-auto mb-40 ml-auto pr-4 pl-4">
+  <div class="grid md:grid-cols-2 gap-6 sm:gap-8 gap-x-6 gap-y-6 items-start">
+    <!-- Copy -->
+    <div class="animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.05s_both]">
+      <p class="text-[10px] sm:text-xs text-neutral-400">About Sentra</p>
+      <h2 class="leading-tight sm:text-5xl lg:text-7xl text-3xl font-light text-white tracking-tighter mt-2">
+        We believe security isn’t about walls — it’s about trust.
+      </h2>
+      <p class="leading-relaxed sm:mt-4 sm:text-xl text-xs text-neutral-400 max-w-2xl mt-3">
+        Sentra is a full‑stack security platform that helps engineering teams grow with purpose and data‑driven precision. 
+        From mapping identities and devices to enforcing least‑privilege and adaptive policies, we turn noisy telemetry into action you can verify.
+      </p>
+    </div>
+
+    <!-- Visuals -->
+    <div class="animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.1s_both]">
+      <div class="grid grid-cols-2 gap-3 sm:gap-4 gap-x-3 gap-y-3">
+        <!-- Small tile -->
+        <figure class="border-gradient overflow-hidden rounded-[18px] sm:rounded-[24px] h-32 sm:h-40 md:h-48 bg-neutral-900/40 backdrop-blur">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/69a9f306-3b05-4ec0-a78e-2c306e72e38d_800w.webp" alt="Team collaboration" class="w-full h-full object-cover grayscale" loading="lazy">
+        </figure>
+
+        <!-- Large tile with overlay -->
+        <div class="col-span-1 relative border-gradient overflow-hidden rounded-[18px] sm:rounded-[24px] h-40 sm:h-52 md:h-64 bg-neutral-900/40 backdrop-blur">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8f421efe-8b0c-43ef-bd1c-e6ad11ee28a1_800w.webp" alt="Strategy session" class="w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0 grayscale" loading="lazy">
+          <div class="absolute inset-x-3 sm:inset-x-4 bottom-3 sm:bottom-4">
+            <div class="bg-neutral-900/70 backdrop-blur rounded-[14px] sm:rounded-[16px] p-3 sm:p-4 border-gradient">
+              <p class="text-sm sm:text-base font-semibold tracking-tight text-white">Our bold and brilliant builders</p>
+              <div class="mt-2">
+                <a href="#" class="inline-flex items-center gap-2 text-[11px] sm:text-sm text-neutral-200 hover:text-white transition">
+                  <span class="inline-flex items-center justify-center px-3 py-1.5 rounded-full bg-orange-400/80 text-neutral-900 font-medium">Learn more</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-neutral-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M7 17L17 7"></path>
+                    <path d="M8 7h9v9"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wide tile -->
+        <figure class="col-span-2 border-gradient overflow-hidden rounded-[18px] sm:rounded-[24px] h-32 sm:h-40 md:h-48 bg-neutral-900/40 backdrop-blur">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a160edbd-5573-4188-bafe-7a69220a18de_1600w.webp" alt="Minimal abstract render" class="w-full h-full object-cover grayscale" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Org stats -->
+  <div class="sm:mt-8 grid grid-cols-2 md:grid-cols-4 sm:gap-4 animate-on-scroll [animation:fadeSlideIn_0.7s_ease-out_0.05s_both] mt-8 gap-x-3 gap-y-3">
+    <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+      <p class="text-[10px] sm:text-xs text-neutral-400">Customers</p>
+      <p class="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white">2,400+</p>
+      <p class="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Across 18 industries</p>
+    </div>
+    <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+      <p class="text-[10px] sm:text-xs text-neutral-400">Team</p>
+      <p class="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white">68</p>
+      <p class="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Engineers &amp; researchers</p>
+    </div>
+    <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+      <p class="text-[10px] sm:text-xs text-neutral-400">Countries</p>
+      <p class="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white">14</p>
+      <p class="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Fully remote</p>
+    </div>
+    <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+      <p class="text-[10px] sm:text-xs text-neutral-400">NPS</p>
+      <p class="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white">76</p>
+      <p class="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Last 4 quarters</p>
+    </div>
+  </div>
+</section><section class="sm:px-6 lg:px-8 lg:ml-auto lg:mr-auto max-w-7xl mt-10 mr-auto ml-auto px-4">
+  <!-- Heading + side CTA -->
+  <div class="flex flex-col lg:flex-row lg:items-end gap-4 gap-x-4 gap-y-4 justify-between">
+    <h2 class="leading-tight animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.05s_both] sm:text-5xl lg:text-8xl text-3xl font-light text-white tracking-tighter">
+      Metrics That Earn Confidence
+    </h2>
+    <div class="max-w-sm animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.1s_both]">
+      <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed">
+        Data, rigor, and outcomes — the fuel behind every release.
+      </p>
+      <div class="mt-3">
+        <a href="#" class="btn-wrapper" style="--dot-size: 8px; --line-weight: 1px; --line-distance: 0.8rem 1rem; --animation-speed: 0.35s; --dot-color: #fffa; --line-color: #fffa; --grid-color: #fff3; position: relative; display: inline-flex; justify-content: center; align-items: center; width: auto; height: auto; padding: var(--line-distance); background-color: rgba(0, 0, 0, 0); user-select: none">
+          <div class="line horizontal top"></div>
+          <div class="line vertical right"></div>
+          <div class="line horizontal bottom"></div>
+          <div class="line vertical left"></div>
+          <div class="dot top left"></div>
+          <div class="dot top right"></div>
+          <div class="dot bottom right"></div>
+          <div class="dot bottom left"></div>
+          <button class="btn bg-transparent">
+            <span class="btn-text">Explore metrics</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="btn-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:.5rem;flex-shrink:0;">
+              <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="sm:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mt-6 gap-x-3 gap-y-3">
+    <!-- Big orange card -->
+    <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.05s_both] bg-orange-400/90 text-neutral-900 rounded-[20px] sm:rounded-[28px] p-4 sm:p-6 md:col-span-2">
+      <div class="flex items-baseline gap-2">
+        <p class="text-4xl sm:text-6xl font-semibold tracking-tight">1.2M</p>
+        <span class="text-base sm:text-lg font-medium">Checks/day</span>
+      </div>
+      <p class="mt-3 text-xs sm:text-sm text-neutral-900/80 leading-relaxed">
+        Automated policy evaluations executed across customer fleets every day.
+      </p>
+    </div>
+
+    <!-- White card -->
+    <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.1s_both] bg-white text-neutral-900 rounded-[20px] sm:rounded-[28px] p-4 sm:p-6">
+      <div class="flex items-baseline gap-1">
+        <p class="text-4xl sm:text-6xl font-semibold tracking-tight">99.8</p>
+        <span class="text-2xl sm:text-4xl font-medium">%</span>
+      </div>
+      <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed">
+        Requests resolved within SLO — verified across the last four quarters.
+      </p>
+    </div>
+
+    <!-- Dark card -->
+    <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.15s_both] bg-neutral-900/60 rounded-[20px] sm:rounded-[28px] p-4 sm:p-6">
+      <div class="flex items-baseline gap-1">
+        <p class="text-4xl sm:text-6xl font-semibold tracking-tight text-white">2.6</p>
+        <span class="text-2xl sm:text-4xl font-medium text-white/90">K</span>
+      </div>
+      <p class="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">
+        Active teams relying on Sentra for identity and API protection.
+      </p>
+    </div>
+
+    <!-- Monotone big card -->
+    <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] bg-neutral-900/60 text-white rounded-[20px] sm:rounded-[28px] p-4 sm:p-6 md:col-span-2">
+      <div class="flex items-baseline gap-2">
+        <p class="text-4xl sm:text-6xl font-semibold tracking-tight">14.6B</p>
+        <span class="text-base sm:text-lg font-medium text-white/90">Signals/month</span>
+      </div>
+      <p class="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">
+        Normalized telemetry scored and retained for continuous verification.
+      </p>
+    </div>
+  </div>
+</section><section class="sm:px-6 lg:px-8 lg:ml-auto lg:mr-auto max-w-7xl mt-6 mr-auto ml-auto px-4">
+  <div class="border-gradient animate-on-scroll [animation:fadeSlideIn_0.8s_ease-out_0.05s_both] sm:rounded-[32px] sm:p-6 md:p-8 bg-neutral-900/40 rounded-[24px] pt-4 pr-4 pb-4 pl-4 backdrop-blur">
+    <div class="grid md:grid-cols-3 gap-4 sm:gap-6 items-center">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl sm:text-4xl text-white tracking-tight font-light leading-tight">Ready to prove security, not just promise it?</h3>
+        <p class="mt-2 text-xs sm:text-sm text-neutral-400">Start in minutes. No credit card required.</p>
+      </div>
+      <div class="flex gap-3 sm:gap-4 md:justify-end">
+        <button type="button" class="gradient-button">
+          <div class="points_wrapper">
+            <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+            <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+          </div>
+          <span class="inner">
+            Start free
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+              <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </span>
+        </button>
+        <a href="#" class="btn-wrapper" style="--dot-size: 8px; --line-weight: 1px; --line-distance: 0.8rem 1rem; --animation-speed: 0.35s; --dot-color: #fffa; --line-color: #fffa; --grid-color: #fff3; position: relative; display: inline-flex; justify-content: center; align-items: center; width: auto; height: auto; padding: var(--line-distance); background-color: rgba(0, 0, 0, 0); user-select: none">
+          <div class="line horizontal top"></div>
+          <div class="line vertical right"></div>
+          <div class="line horizontal bottom"></div>
+          <div class="line vertical left"></div>
+          <div class="dot top left"></div>
+          <div class="dot top right"></div>
+          <div class="dot bottom right"></div>
+          <div class="dot bottom left"></div>
+          <button class="btn bg">
+            <span class="btn-text">Book a demo</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="btn-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:.5rem;flex-shrink:0;">
+              <path d="M3 5h18"></path><path d="M8 3v4"></path><path d="M16 3v4"></path><rect x="3" y="8" width="18" height="13" rx="2"></rect>
+            </svg>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="sm:px-6 lg:px-8 lg:ml-auto lg:mr-auto lg:mb-16 max-w-7xl mt-16 mr-auto mb-16 ml-auto px-4">
+  <div class="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
+    <div class="grid gap-6 sm:gap-8 md:grid-cols-5">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3">
+          <div class="w-7 h-7 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/08e314a2-f91b-4a94-8cf5-0042ba81f210_320w.webp)] bg-cover rounded-xl ring-1 ring-white/10"></div>
+          <span class="text-sm font-medium tracking-tight text-white">SENTRA</span>
+        </div>
+        <p class="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed max-w-md">
+          Verifiable protection for modern apps — privacy‑first, open, and community‑audited.
+        </p>
+        <div class="mt-4 flex items-center gap-3">
+          <a href="#" class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-white/15 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 3.5 5.07 5.07 0 0 0 18.91 0S17.73-.35 15 1.31a13.38 13.38 0 0 0-6 0C6.27-.35 5.09 0 5.09 0A5.07 5.07 0 0 0 5 3.5 5.44 5.44 0 0 0 3.5 8.5c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 21.13V24"></path>
+            </svg>
+          </a>
+          <a href="#" class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-white/15 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="#" class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-white/15 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[16px] h-[16px]" data-icon-replaced="true" style="color: rgb(229, 229, 229); width: 16px; height: 16px">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 7.5v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:col-span-3 gap-6">
+        <div>
+          <p class="text-xs uppercase tracking-wider text-neutral-400">Product</p>
+          <ul class="mt-2 space-y-2 text-sm">
+            <li><a class="text-neutral-300 hover:text-white transition" href="#">Features</a></li>
+            <li><a class="text-neutral-300 hover:text-white transition" href="#">Pricing</a></li>
+            <li><a class="text-neutral-300 hover:text-white transition" href="#">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <p class="text-xs uppercase tracking-wider text-neutral-400">Developers</p>
+          <ul class="mt-2 space-y-2 text-sm">
+            <li><a class="text-neutral-300 hover:text-white transition" href="#">Docs</a></li>
+            <li class=""><a class="text-neutral-300 hover:text-white transition" href="#">SDKs</a></li>
+            <li><a class="text-neutral-300 hover:text-white transition" href="#">Status</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <p class="text-xs uppercase tracking-wider text-neutral-400">Company</p>
+          <ul class="mt-2 space-y-2 text-sm">
+            <li class=""><a class="text-neutral-300 hover:text-white transition" href="#">About</a></li>
+            <li><a class="text-neutral-300 hover:text-white transition" href="#">Careers</a></li>
+            <li><a class="text-neutral-300 hover:text-white transition" href="#">Trust Center</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <p class="text-[11px] sm:text-xs text-neutral-500">© <span class="whitespace-nowrap">2025 Sentra Security, Inc.</span> All rights reserved.</p>
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+        <a href="#" class="text-neutral-400 hover:text-white transition">Terms</a>
+        <a href="#" class="text-neutral-400 hover:text-white transition">Privacy</a>
+        <a href="#" class="text-neutral-400 hover:text-white transition">DPA</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    </main>
+
+    <style>
+    .gradient-button {
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      background: #525252;
+      border-radius: 9999px;
+      border: none;
+      outline: none;
+      padding: 0.75rem 1.25rem;
+      min-height: 44px;
+      width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .gradient-button {
+        width: auto;
+        min-width: 140px;
+      }
+    }
+  
+    .gradient-button::before,
+    .gradient-button::after {
+      content: "";
+      position: absolute;
+      transition: all 0.5s ease-in-out;
+      z-index: 0;
+    }
+  
+    .gradient-button::before {
+      inset: 1px;
+      background: linear-gradient(177.95deg, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0) 100%);
+      border-radius: 9999px;
+    }
+  
+    .gradient-button::after {
+      inset: 2px;
+      background: #525252;
+      border-radius: 9999px;
+    }
+  
+    .gradient-button:active {
+      transform: scale(0.95);
+    }
+  
+    .points_wrapper {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      position: absolute;
+      z-index: 1;
+    }
+  
+    .points_wrapper .point {
+      bottom: -10px;
+      position: absolute;
+      animation: floating-points infinite ease-in-out;
+      pointer-events: none;
+      width: 2px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 9999px;
+    }
+  
+    @keyframes floating-points {
+      0% {
+        transform: translateY(0);
+      }
+  
+      85% {
+        opacity: 0;
+      }
+  
+      100% {
+        transform: translateY(-55px);
+        opacity: 0;
+      }
+    }
+  
+    .points_wrapper .point:nth-child(1) {
+      left: 10%;
+      opacity: 1;
+      animation-duration: 2.35s;
+      animation-delay: 0.2s;
+    }
+  
+    .points_wrapper .point:nth-child(2) {
+      left: 30%;
+      opacity: 0.7;
+      animation-duration: 2.5s;
+      animation-delay: 0.5s;
+    }
+  
+    .points_wrapper .point:nth-child(3) {
+      left: 25%;
+      opacity: 0.8;
+      animation-duration: 2.2s;
+      animation-delay: 0.1s;
+    }
+  
+    .points_wrapper .point:nth-child(4) {
+      left: 44%;
+      opacity: 0.6;
+      animation-duration: 2.05s;
+    }
+  
+    .points_wrapper .point:nth-child(5) {
+      left: 50%;
+      opacity: 1;
+      animation-duration: 1.9s;
+    }
+  
+    .points_wrapper .point:nth-child(6) {
+      left: 75%;
+      opacity: 0.5;
+      animation-duration: 1.5s;
+      animation-delay: 1.5s;
+    }
+  
+    .points_wrapper .point:nth-child(7) {
+      left: 88%;
+      opacity: 0.9;
+      animation-duration: 2.2s;
+      animation-delay: 0.2s;
+    }
+  
+    .points_wrapper .point:nth-child(8) {
+      left: 58%;
+      opacity: 0.8;
+      animation-duration: 2.25s;
+      animation-delay: 0.2s;
+    }
+  
+    .points_wrapper .point:nth-child(9) {
+      left: 98%;
+      opacity: 0.6;
+      animation-duration: 2.6s;
+      animation-delay: 0.1s;
+    }
+  
+    .points_wrapper .point:nth-child(10) {
+      left: 65%;
+      opacity: 1;
+      animation-duration: 2.5s;
+      animation-delay: 0.2s;
+    }
+  
+    .inner {
+      z-index: 2;
+      gap: 6px;
+      position: relative;
+      width: 100%;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      transition: color 0.2s ease-in-out;
+    }
+
+    @media (min-width: 640px) {
+      .inner {
+        font-size: 15px;
+      }
+    }
+  
+    .inner svg.icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+      stroke: white;
+      fill: none;
+      flex-shrink: 0;
+    }
+  
+    .gradient-button:hover svg.icon {
+      transform: translateX(2px);
+    }
+  
+    .gradient-button:hover svg.icon path {
+      animation: dash 0.8s linear forwards;
+    }
+  
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 0, 20;
+        stroke-dashoffset: 0;
+      }
+  
+      50% {
+        stroke-dasharray: 10, 10;
+        stroke-dashoffset: -5;
+      }
+  
+      100% {
+        stroke-dasharray: 20, 0;
+        stroke-dashoffset: -10;
+      }
+    }
+
+    .btn-wrapper::after,
+    .btn-wrapper-nav::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+      pointer-events: none;
+      background-color: #0000;
+      background-image: repeating-linear-gradient(45deg, var(--grid-color) 0 1px, transparent 2px 5px);
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .btn-wrapper:has(.btn:hover)::after,
+    .btn-wrapper-nav:has(.btn:hover)::after {
+      animation: opacity-anim calc(var(--animation-speed) * 4) ease-in-out forwards;
+    }
+
+    @keyframes opacity-anim {
+      80% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .btn-wrapper .btn,
+    .btn-wrapper-nav .btn {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.7rem 1rem;
+      background-color: #fff0;
+      border: 1px solid var(--grid-color);
+      color: #fffd;
+      font-family: 'Geist', "Inter", sans-serif;
+      letter-spacing: -0.01em;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: capitalize;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: transform .2s ease-in-out, letter-spacing .2s ease-in-out;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 640px) {
+      .btn-wrapper .btn {
+        font-size: 15px;
+        padding: 0.8rem 1.25rem;
+      }
+    }
+
+    .btn-wrapper-nav .btn {
+      font-size: 12px;
+      padding: 0.5rem 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .btn-wrapper-nav .btn {
+        font-size: 13px;
+        padding: 0.6rem 0.8rem;
+      }
+    }
+
+    .btn-wrapper .btn:hover,
+    .btn-wrapper-nav .btn:hover {
+      background-color: #525252;
+      color: #fff;
+      transform: scale(1.05);
+      letter-spacing: .06em;
+    }
+
+    .btn-wrapper .btn:active,
+    .btn-wrapper-nav .btn:active {
+      background-color: #525252;
+      transform: scale(.98);
+      letter-spacing: .02em;
+    }
+
+    .btn-wrapper .btn:hover iconify-icon,
+    .btn-wrapper-nav .btn:hover iconify-icon {
+      color: #fffa !important;
+    }
+
+    .btn-wrapper .dot,
+    .btn-wrapper-nav .dot {
+      position: absolute;
+      width: var(--dot-size);
+      aspect-ratio: 1;
+      border-radius: 2px;
+      background-color: var(--dot-color);
+      transition: all .3s ease-in-out;
+      opacity: 0;
+    }
+
+    .btn-wrapper:has(.btn:hover) .dot.top.left,
+    .btn-wrapper-nav:has(.btn:hover) .dot.top.left {
+      top: 50%;
+      left: 20%;
+      animation: move-top-left var(--animation-speed) ease-in-out forwards;
+    }
+
+    @keyframes move-top-left {
+      90% {
+        opacity: .6;
+      }
+
+      100% {
+        top: calc(var(--dot-size) * -0.5);
+        left: calc(var(--dot-size) * -0.5);
+        opacity: 1;
+      }
+    }
+
+    .btn-wrapper:has(.btn:hover) .dot.top.right,
+    .btn-wrapper-nav:has(.btn:hover) .dot.top.right {
+      top: 50%;
+      right: 20%;
+      animation: move-top-right var(--animation-speed) ease-in-out forwards;
+      animation-delay: calc(var(--animation-speed)*.6);
+    }
+
+    @keyframes move-top-right {
+      80% {
+        opacity: .6;
+      }
+
+      100% {
+        top: calc(var(--dot-size) * -0.5);
+        right: calc(var(--dot-size) * -0.5);
+        opacity: 1;
+      }
+    }
+
+    .btn-wrapper:has(.btn:hover) .dot.bottom.right,
+    .btn-wrapper-nav:has(.btn:hover) .dot.bottom.right {
+      bottom: 50%;
+      right: 20%;
+      animation: move-bottom-right var(--animation-speed) ease-in-out forwards;
+      animation-delay: calc(var(--animation-speed)*1.2);
+    }
+
+    @keyframes move-bottom-right {
+      80% {
+        opacity: .6;
+      }
+
+      100% {
+        bottom: calc(var(--dot-size) * -0.5);
+        right: calc(var(--dot-size) * -0.5);
+        opacity: 1;
+      }
+    }
+
+    .btn-wrapper:has(.btn:hover) .dot.bottom.left,
+    .btn-wrapper-nav:has(.btn:hover) .dot.bottom.left {
+      bottom: 50%;
+      left: 20%;
+      animation: move-bottom-left var(--animation-speed) ease-in-out forwards;
+      animation-delay: calc(var(--animation-speed)*1.8);
+    }
+
+    @keyframes move-bottom-left {
+      80% {
+        opacity: .6;
+      }
+
+      100% {
+        bottom: calc(var(--dot-size) * -0.5);
+        left: calc(var(--dot-size) * -0.5);
+        opacity: 1;
+      }
+    }
+
+    .btn-wrapper .line,
+    .btn-wrapper-nav .line {
+      position: absolute;
+      transition: all .3s ease-in-out;
+    }
+
+    .btn-wrapper .line.horizontal,
+    .btn-wrapper-nav .line.horizontal {
+      height: var(--line-weight);
+      width: 100%;
+      background-image: repeating-linear-gradient(90deg, #0000 0 calc(var(--line-weight)*2), var(--line-color) calc(var(--line-weight)*2) calc(var(--line-weight)*4));
+    }
+
+    .btn-wrapper .line.top,
+    .btn-wrapper-nav .line.top {
+      top: calc(var(--line-weight)*-0.5);
+      transform-origin: top left;
+      transform: rotate(5deg) scaleX(0);
+    }
+
+    .btn-wrapper:has(.btn:hover) .line.top,
+    .btn-wrapper-nav:has(.btn:hover) .line.top {
+      animation: draw-top var(--animation-speed) ease-in-out forwards;
+      animation-delay: calc(var(--animation-speed)*.8);
+    }
+
+    @keyframes draw-top {
+      100% {
+        transform: rotate(0deg) scaleX(1);
+      }
+    }
+
+    .btn-wrapper .line.bottom,
+    .btn-wrapper-nav .line.bottom {
+      bottom: calc(var(--line-weight)*-0.5);
+      transform-origin: bottom right;
+      transform: rotate(5deg) scaleX(0);
+    }
+
+    .btn-wrapper:has(.btn:hover) .line.bottom,
+    .btn-wrapper-nav:has(.btn:hover) .line.bottom {
+      animation: draw-bottom var(--animation-speed) ease-in-out forwards;
+      animation-delay: calc(var(--animation-speed)*2);
+    }
+
+    @keyframes draw-bottom {
+      100% {
+        transform: rotate(0deg) scaleX(1);
+      }
+    }
+
+    .btn-wrapper .line.vertical,
+    .btn-wrapper-nav .line.vertical {
+      width: var(--line-weight);
+      height: 100%;
+      background-image: repeating-linear-gradient(0deg, #0000 0 calc(var(--line-weight)*2), var(--line-color) calc(var(--line-weight)*2) calc(var(--line-weight)*4));
+    }
+
+    .btn-wrapper .line.left,
+    .btn-wrapper-nav .line.left {
+      left: calc(var(--line-weight)*-0.5);
+      transform-origin: bottom left;
+      transform: rotate(0deg) scaleY(0);
+    }
+
+    .btn-wrapper:has(.btn:hover) .line.left,
+    .btn-wrapper-nav:has(.btn:hover) .line.left {
+      animation: draw-left var(--animation-speed) ease-in-out forwards;
+      animation-delay: calc(var(--animation-speed)*2.4);
+    }
+
+    @keyframes draw-left {
+      100% {
+        transform: rotate(0deg) scaleY(1);
+      }
+    }
+
+    .btn-wrapper .line.right,
+    .btn-wrapper-nav .line.right {
+      right: calc(var(--line-weight)*-0.5);
+      transform-origin: top right;
+      transform: rotate(5deg) scaleY(0);
+    }
+
+    .btn-wrapper:has(.btn:hover) .line.right,
+    .btn-wrapper-nav:has(.btn:hover) .line.right {
+      animation: draw-right var(--animation-speed) ease-in-out forwards;
+      animation-delay: calc(var(--animation-speed)*1.4);
+    }
+
+    @keyframes draw-right {
+      100% {
+        transform: rotate(0deg) scaleY(1);
+      }
+    }
+    </style>
+  
+</body></html>

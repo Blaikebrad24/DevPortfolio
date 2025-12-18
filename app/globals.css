@@ -150,3 +150,370 @@ html {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Border Gradient */
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: linear-gradient(225deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.0) 100%);
+  pointer-events: none;
+}
+
+/* Animation Keyframe */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Animation on Scroll */
+.animate-on-scroll {
+  animation-play-state: paused !important;
+}
+
+.animate-on-scroll.animate {
+  animation-play-state: running !important;
+}
+
+/* Gradient Button */
+.gradient-button {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #737373 0%, #404040 100%);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .gradient-button {
+    width: auto;
+    min-width: 140px;
+  }
+}
+
+.gradient-button::before,
+.gradient-button::after {
+  content: "";
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.gradient-button::before {
+  inset: 1px;
+  background: linear-gradient(177.95deg, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 9999px;
+}
+
+.gradient-button::after {
+  inset: 2px;
+  background: #525252;
+  border-radius: 9999px;
+}
+
+.gradient-button:active {
+  transform: scale(0.95);
+}
+
+.gradient-button .inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gradient-button:hover svg.icon {
+  transform: translateX(2px);
+}
+
+/* Animated Border Button */
+.btn-wrapper::after,
+.btn-wrapper-nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(0deg, var(--grid-color) 0 1px, #0000 1px 100%), repeating-linear-gradient(90deg, var(--grid-color) 0 1px, #0000 1px 100%);
+  background-size: 4px 4px;
+  opacity: 1;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.btn-wrapper:has(.btn:hover)::after,
+.btn-wrapper-nav:has(.btn:hover)::after {
+  animation: opacity-anim calc(var(--animation-speed) * 4) ease-in-out forwards;
+}
+
+@keyframes opacity-anim {
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.btn-wrapper .btn,
+.btn-wrapper-nav .btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .btn-wrapper .btn {
+    font-size: 15px;
+    padding: 0.8rem 1.25rem;
+  }
+}
+
+.btn-wrapper-nav .btn {
+  font-size: 12px;
+  padding: 0.5rem 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .btn-wrapper-nav .btn {
+    font-size: 13px;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+.btn-wrapper .btn:hover,
+.btn-wrapper-nav .btn:hover {
+  background-color: #525252;
+  color: #fff;
+  transform: scale(1.05);
+  letter-spacing: .06em;
+}
+
+.btn-wrapper .btn:active,
+.btn-wrapper-nav .btn:active {
+  background-color: #525252;
+  transform: scale(.98);
+  letter-spacing: .02em;
+}
+
+.btn-wrapper .dot,
+.btn-wrapper-nav .dot {
+  position: absolute;
+  width: var(--dot-size);
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background-color: var(--dot-color);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.btn-wrapper:has(.btn:hover) .dot.top.left,
+.btn-wrapper-nav:has(.btn:hover) .dot.top.left {
+  top: 50%;
+  left: 20%;
+  animation: move-top-left var(--animation-speed) ease-in-out forwards;
+}
+
+@keyframes move-top-left {
+  90% {
+    opacity: .6;
+  }
+  100% {
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+}
+
+.btn-wrapper:has(.btn:hover) .dot.top.right,
+.btn-wrapper-nav:has(.btn:hover) .dot.top.right {
+  top: 50%;
+  right: 20%;
+  animation: move-top-right var(--animation-speed) ease-in-out forwards;
+  animation-delay: calc(var(--animation-speed)*.6);
+}
+
+@keyframes move-top-right {
+  80% {
+    opacity: .6;
+  }
+  100% {
+    opacity: 0;
+    top: 0;
+    right: 0;
+  }
+}
+
+.btn-wrapper:has(.btn:hover) .dot.bottom.right,
+.btn-wrapper-nav:has(.btn:hover) .dot.bottom.right {
+  bottom: 50%;
+  right: 20%;
+  animation: move-bottom-right var(--animation-speed) ease-in-out forwards;
+  animation-delay: calc(var(--animation-speed)*1.2);
+}
+
+@keyframes move-bottom-right {
+  80% {
+    opacity: .6;
+  }
+  100% {
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.btn-wrapper:has(.btn:hover) .dot.bottom.left,
+.btn-wrapper-nav:has(.btn:hover) .dot.bottom.left {
+  bottom: 50%;
+  left: 20%;
+  animation: move-bottom-left var(--animation-speed) ease-in-out forwards;
+  animation-delay: calc(var(--animation-speed)*1.8);
+}
+
+@keyframes move-bottom-left {
+  80% {
+    opacity: .6;
+  }
+  100% {
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.btn-wrapper .line,
+.btn-wrapper-nav .line {
+  position: absolute;
+  transition: all .3s ease-in-out;
+}
+
+.btn-wrapper .line.horizontal,
+.btn-wrapper-nav .line.horizontal {
+  height: var(--line-weight);
+  width: 100%;
+  background-image: repeating-linear-gradient(90deg, #0000 0 calc(var(--line-weight)*2), var(--line-color) calc(var(--line-weight)*2) calc(var(--line-weight)*4));
+}
+
+.btn-wrapper .line.top,
+.btn-wrapper-nav .line.top {
+  top: calc(var(--line-weight)*-0.5);
+  transform-origin: top left;
+  transform: rotate(5deg) scaleX(0);
+}
+
+.btn-wrapper:has(.btn:hover) .line.top,
+.btn-wrapper-nav:has(.btn:hover) .line.top {
+  animation: draw-top var(--animation-speed) ease-in-out forwards;
+  animation-delay: calc(var(--animation-speed)*.8);
+}
+
+@keyframes draw-top {
+  100% {
+    transform: rotate(0deg) scaleX(1);
+  }
+}
+
+.btn-wrapper .line.bottom,
+.btn-wrapper-nav .line.bottom {
+  bottom: calc(var(--line-weight)*-0.5);
+  transform-origin: bottom right;
+  transform: rotate(5deg) scaleX(0);
+}
+
+.btn-wrapper:has(.btn:hover) .line.bottom,
+.btn-wrapper-nav:has(.btn:hover) .line.bottom {
+  animation: draw-bottom var(--animation-speed) ease-in-out forwards;
+  animation-delay: calc(var(--animation-speed)*2);
+}
+
+@keyframes draw-bottom {
+  100% {
+    transform: rotate(0deg) scaleX(1);
+  }
+}
+
+.btn-wrapper .line.vertical,
+.btn-wrapper-nav .line.vertical {
+  width: var(--line-weight);
+  height: 100%;
+  background-image: repeating-linear-gradient(0deg, #0000 0 calc(var(--line-weight)*2), var(--line-color) calc(var(--line-weight)*2) calc(var(--line-weight)*4));
+}
+
+.btn-wrapper .line.left,
+.btn-wrapper-nav .line.left {
+  left: calc(var(--line-weight)*-0.5);
+  transform-origin: bottom left;
+  transform: rotate(0deg) scaleY(0);
+}
+
+.btn-wrapper:has(.btn:hover) .line.left,
+.btn-wrapper-nav:has(.btn:hover) .line.left {
+  animation: draw-left var(--animation-speed) ease-in-out forwards;
+  animation-delay: calc(var(--animation-speed)*2.4);
+}
+
+@keyframes draw-left {
+  100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+}
+
+.btn-wrapper .line.right,
+.btn-wrapper-nav .line.right {
+  right: calc(var(--line-weight)*-0.5);
+  transform-origin: top right;
+  transform: rotate(5deg) scaleY(0);
+}
+
+.btn-wrapper:has(.btn:hover) .line.right,
+.btn-wrapper-nav:has(.btn:hover) .line.right {
+  animation: draw-right var(--animation-speed) ease-in-out forwards;
+  animation-delay: calc(var(--animation-speed)*1.4);
+}
+
+@keyframes draw-right {
+  100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+}

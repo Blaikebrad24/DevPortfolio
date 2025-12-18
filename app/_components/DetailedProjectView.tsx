@@ -4,7 +4,6 @@
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, GitGraph, ExternalLink, Star, GitFork, Lightbulb, TrendingUp, TrendingDown, Code2 } from 'lucide-react';
-import JupiterBackground from "./JupiterBackground";
 
 interface ProjectDetailProps {
     title: string;
@@ -33,11 +32,9 @@ interface ProjectDetailProps {
   export function DetailedProjectView({ title, description, technologies, stars, forks, link,design,process,learnings}: ProjectDetailProps) {
 
     const router = useRouter();
-  
+
     return (
       <div className="min-h-screen relative">
-        <JupiterBackground />
-        
         <div className="relative z-10 min-h-screen p-4 md:p-6 lg:p-8">
           <div className="max-w-5xl mx-auto">
             {/* Back Button */}
