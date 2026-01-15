@@ -47,7 +47,7 @@ async function _fetchGithubRepos(): Promise<GithubProject[]>
     if (!res.ok) throw new Error("Failed to fetch GitHub repos");
     
         const data = await res.json();
-        const projects = data.map((repo: any) => ({
+        const projects = data.map((repo: { name: string; description: string | null; language: string | null; stargazers_count: number; forks_count: number; html_url: string }) => ({
         id: repo.name,
         title: repo.name,
         description: repo.description || "No description provided.",

@@ -117,7 +117,7 @@ export default async function Home() {
               </h1>
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-neutral-400 leading-relaxed">
                I thrive on transforming complex challenges into elegant code, exploring the intersection of software engineering and artificial intelligence. 
-                      Whether architecting scalable systems or experimenting with cutting-edge ML frameworks, I'm driven by the pursuit of building technology that solves real-world problems and pushes boundaries.
+                      Whether architecting scalable systems or experimenting with cutting-edge ML frameworks, I&apos;m driven by the pursuit of building technology that solves real-world problems and pushes boundaries.
               </p>
               <div className="sm:mt-6 flex flex-col lg:flex-row lg:items-center mt-6 gap-x-3 gap-y-3 items-stretch">
                 {/* Animated Gradient Button */}
@@ -209,8 +209,8 @@ export default async function Home() {
                       <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
                     </span>
                     <div>
-                      <h4 className="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">Innovation First</h4>
-                      <p className="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Passionate about emerging technologies and AI-driven solutions that make a difference.</p>
+                      <h4 className="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">AI Security Guard</h4>
+                      <p className="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Event-Driven Microservices Architecture, asynchronous containerized video surveillance system using Python & computer vision</p>
                     </div>
                   </div>
                 </div>
@@ -228,8 +228,8 @@ export default async function Home() {
                       <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
                     </span>
                     <div>
-                      <h4 className="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">Quality Driven</h4>
-                      <p className="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Building robust, scalable applications with clean architecture and best practices.</p>
+                      <h4 className="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">Packet-Vision</h4>
+                      <p className="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Networking & Data Visualization, monitor your network traffic in real-time using Wireshark & Python</p>
                     </div>
                   </div>
                 </div>
