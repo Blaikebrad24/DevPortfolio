@@ -44,7 +44,7 @@ interface ProjectDetailProps {
               animate={{ opacity: 1, x: 0 }}
               whileHover={{ scale: 1.05, x: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 mb-4 md:mb-6 lg:mb-8 px-4 py-2.5 md:py-2 min-h-[44px] rounded-lg text-[#FDBA74] hover:text-[#F97316] transition-colors touch-manipulation"
+              className="flex items-center gap-2 mb-4 md:mb-6 lg:mb-8 px-4 py-2.5 md:py-2 min-h-11 rounded-lg text-[#FDBA74] hover:text-[#F97316] transition-colors touch-manipulation"
               style={{
                 background: 'linear-gradient(135deg, rgba(35, 35, 35, 0.85) 0%, rgba(20, 20, 20, 0.5) 100%)',
                 backdropFilter: 'blur(12px)',

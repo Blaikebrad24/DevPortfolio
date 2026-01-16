@@ -305,7 +305,7 @@ export default async function Home() {
           <div className="sm:mt-4 grid grid-cols-3 sm:gap-4 animate-on-scroll animate-[fadeSlideIn_0.7s_ease-out_0.05s_both] mt-4 gap-x-3 gap-y-3">
             <div className="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
               <p className="text-[10px] sm:text-xs text-green-400">GitHub</p>
-              <p className="sm:text-lg md:text-xl text-base font-semibold text-white tracking-tight mt-0.5 mr-2">@Blaikebrad24</p>
+              <p className="sm:text-lg md:text-xl text-base font-semibold text-white tracking-tight mt-0.5 mr-2 truncate">@Blaikebrad24</p>
               <p className="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Open source projects</p>
             </div>
             <div className="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
