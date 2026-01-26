@@ -187,7 +187,7 @@ export default async function Home() {
                   <p className="text-base font-semibold text-white tracking-tight mt-0.5 sm:mt-1 sm:text-lg md:text-sm truncate">Dallas</p>
                   <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400">Texas, USA</p>
                 </div>
-                <div className="border-gradient before:rounded-3xl sm:before:rounded-4xl md:before:rounded-[24px] bg-neutral-900/60 rounded-3xl sm:rounded-4xl md:rounded-[24px] p-3 sm:p-4">
+                <div className="border-gradient before:rounded-3xl sm:before:rounded-4xl md:before:rounded-[24px] bg-neutral-900/60 border border-orange-400 rounded-3xl sm:rounded-4xl md:rounded-[24px] p-3 sm:p-4">
                   <p className="text-[9px] sm:text-[10px] text-neutral-400">Role</p>
                   <p className="mt-0.5 text-base font-semibold tracking-tight text-white sm:mt-1 sm:text-lg md:text-sm truncate">Sr. Systems</p>
                   <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400 truncate">Engineer @ AT&T</p>
