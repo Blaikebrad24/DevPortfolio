@@ -1,391 +1,709 @@
 import { fetchFilteredGithub } from "./_actions/fetchFilteredGithub";
-import { Code2, Rocket, Users, Zap, Github, Linkedin, Twitter, ArrowRight, Briefcase, MapPin, LogIn } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import ClientWrapper from "./_components/ClientWrapper";
 import ProjectCard from "./_components/ProjectCard";
-import TechStackCard from "./_components/TechStackCard";
-import CurrentStudyFocus from "./_components/CurrentStudyFocus";
-import CurrentResumeCard from "./_components/CurrentResumeCard";
-import ProjectUpdates from "./_components/ProjectUpdates";
-
+import HeroCanvas from "./_components/HeroCanvas";
+import PhotoCarousel from "./_components/PhotoCarousel";
 
 export default async function Home() {
   const projects = await fetchFilteredGithub();
 
   return (
     <ClientWrapper>
-    <div className="min-h-screen text-neutral-200">
-      {/* Header */}
-      <header className="z-20 relative">
-        <nav className="sm:px-6 lg:px-8 sm:pt-6 max-w-7xl mr-auto ml-auto pt-4 pr-4 pl-4">
-          <div className="flex border-gradient fixed w-[calc(100%-2rem)] sm:w-auto sm:max-w-3xl sm:rounded-[32px] sm:right-0 sm:left-0 sm:gap-x-4 bg-neutral-900/40 h-16 rounded-[24px] mr-auto ml-auto pt-2 pr-0 pb-2 pl-5 top-4 right-4 left-4 backdrop-blur-lg gap-x-2 items-center justify-between">
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="flex items-center justify-center sm:w-7 sm:h-7 shrink-0 w-6 h-6 bg-white/10 ring-neutral-50/10 ring-1 rounded-xl">
-                <Code2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
-              </div>
-              <span className="text-xs sm:text-sm font-medium text-white tracking-tight">BLAIKE BRADFORD</span>
-            </div>
-            <div className="hidden md:flex items-center gap-4 lg:gap-6 text-sm text-neutral-300">
-              <a href="#about" className="hover:text-white transition-colors cursor-pointer">About</a>
-              <a href="#tech-stack" className="hover:text-white transition-colors cursor-pointer">Skills Stack</a>
-              <a href="#projects" className="hover:text-white transition-colors cursor-pointer">Projects</a>
-            </div>
+      <div className="min-h-screen text-zinc-300 selection:bg-[#FF4500] selection:text-white flex flex-col items-center py-0 lg:py-16 overflow-x-hidden px-0 lg:px-12 w-full">
+
+        {/* Navbar */}
+        <nav className="fixed top-0 left-0 w-full z-50 mix-blend-difference pointer-events-none px-6 lg:px-12 py-6 flex justify-between items-center">
+          <div className="font-medium tracking-tighter text-white text-lg pointer-events-auto">BLAIKE BRADFORD</div>
+          <div className="pointer-events-auto flex items-center gap-6">
+            <a href="#about" className="text-white hover:text-[#FF4500] transition-colors text-sm hidden md:inline">About</a>
+            <a href="#expertise" className="text-white hover:text-[#FF4500] transition-colors text-sm hidden md:inline">Expertise</a>
+            <a href="#impact" className="text-white hover:text-[#FF4500] transition-colors text-sm hidden md:inline">Impact</a>
+            <a href="#projects" className="text-white hover:text-[#FF4500] transition-colors text-sm hidden md:inline">Projects</a>
             <a
               href="https://www.linkedin.com/in/blaikebradford/"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-wrapper-nav"
-              style={{
-                "--dot-size": "6px",
-                "--line-weight": "1px",
-                "--line-distance": "0.6rem 0.8rem",
-                "--animation-speed": "0.35s",
-                "--dot-color": "#fffa",
-                "--line-color": "#fffa",
-                "--grid-color": "#fff3",
-                position: "relative",
-                display: "inline-flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "auto",
-                height: "auto",
-                padding: "var(--line-distance)",
-                backgroundColor: "rgba(0, 0, 0, 0)",
-                userSelect: "none"
-              } as React.CSSProperties}
+              className="text-[10px] uppercase tracking-widest text-[#F4F3ED] bg-[#FF4500] hover:bg-[#FF4500]/90 px-4 py-2 transition-colors hidden sm:inline-flex items-center gap-2"
             >
-              <div className="line horizontal top"></div>
-              <div className="line vertical right"></div>
-              <div className="line horizontal bottom"></div>
-              <div className="line vertical left"></div>
-              <div className="dot top left"></div>
-              <div className="dot top right"></div>
-              <div className="dot bottom right"></div>
-              <div className="dot bottom left"></div>
-              <button className="btn bg-transparent" style={{
-                maskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)",
-                WebkitMaskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)"
-              }}>
-                <LogIn className="w-3.5 h-3.5 text-white/40" />
-                <span className="btn-text">Connect</span>
-              </button>
+              Connect
+              <ArrowRight className="w-3 h-3" />
             </a>
           </div>
         </nav>
-      </header>
 
-      <main className="relative">
-        <section id="about" className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mt-24 sm:mt-28 lg:mt-32 mb-12 sm:mb-16 lg:mb-20">
-          {/* Top feature chips */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
-            {/* Card 1 - TechStackCard */}
-            <TechStackCard />
+        {/* Master Framework Shell */}
+        <section className="w-full flex justify-center relative z-10">
+          <div className="w-full max-w-[1400px] bg-transparent lg:bg-[#F4F3ED] p-0 lg:p-3 relative shadow-none lg:shadow-2xl lg:shadow-black/50 mt-0 lg:mt-12">
+            {/* Ivory Shell Corner Markers */}
+            <div className="hidden lg:block absolute top-3 left-3 w-1.5 h-1.5 border border-[#0A0A0A] bg-transparent opacity-30" />
+            <div className="hidden lg:block absolute top-3 right-3 w-1.5 h-1.5 border border-[#0A0A0A] bg-transparent opacity-30" />
+            <div className="hidden lg:block absolute bottom-3 left-3 w-1.5 h-1.5 border border-[#0A0A0A] bg-transparent opacity-30" />
+            <div className="hidden lg:block absolute bottom-3 right-3 w-1.5 h-1.5 border border-[#0A0A0A] bg-transparent opacity-30" />
 
-            {/* Card 2 - CurrentStudyFocus */}
-            <CurrentStudyFocus />
+            <div className="relative bg-transparent lg:bg-gradient-to-b lg:from-zinc-500/40 lg:via-zinc-800/40 lg:to-black/80 p-0 lg:p-[1px] h-full">
+              <main className="bg-[#0F0F0F] relative flex flex-col w-full overflow-hidden">
 
-            {/* Card 3 - CurrentResumeCard */}
-            <CurrentResumeCard />
+                {/* ============================================================ */}
+                {/* SECTION 1: Hero                                               */}
+                {/* ============================================================ */}
+                <div id="about" className="relative flex flex-col lg:flex-row w-full min-h-screen lg:min-h-[85vh] overflow-hidden border-b border-white/10">
+                  {/* Grid Lines */}
+                  <div className="absolute inset-0 pointer-events-none flex justify-between z-0">
+                    <div className="w-[1px] h-full bg-white/5 relative left-[8%] hidden md:block">
+                      <div className="absolute top-0 -translate-x-[2px] w-[5px] h-[5px] bg-[#0F0F0F] border border-white/20" />
+                      <div className="absolute bottom-0 -translate-x-[2px] w-[5px] h-[5px] bg-[#0F0F0F] border border-white/20" />
+                    </div>
+                    <div className="w-[1px] h-full bg-white/5 relative left-[40%] hidden lg:block" />
+                    <div className="w-[1px] h-full bg-white/5 relative right-[8%] hidden md:block">
+                      <div className="absolute top-0 -translate-x-[2px] w-[5px] h-[5px] bg-[#0F0F0F] border border-white/20" />
+                      <div className="absolute bottom-0 -translate-x-[2px] w-[5px] h-[5px] bg-[#0F0F0F] border border-white/20" />
+                    </div>
+                  </div>
 
-            {/* Card 4 - ProjectUpdates */}
-            <ProjectUpdates />
-          </div>
+                  {/* Section Rail */}
+                  <header className="absolute top-0 left-0 w-full h-12 border-b border-white/10 flex items-center justify-between px-6 lg:px-12 z-30 bg-[#0F0F0F]/80 backdrop-blur-sm">
+                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-white/20" />
+                      Portfolio Framework
+                    </div>
+                    <div className="flex items-center gap-2 text-zinc-400">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-600 hidden md:inline">v2.0 — 2026</span>
+                    </div>
+                  </header>
 
-          {/* Hero */}
-          <div className="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 border-gradient p-3 sm:p-4 animate-on-scroll animate-[fadeSlideIn_0.8s_ease-out_0.25s_both] bg-neutral-900/40 rounded-[24px] sm:rounded-[32px] backdrop-blur-lg items-stretch">
-            {/* Visual */}
-            <div className="relative overflow-hidden rounded-4xl sm:rounded-[24px] md:rounded-[32px] min-h-60 sm:min-h-70 md:min-h-130">
-              <img src="/BB_NewHaven.jpeg" alt="Blaike Bradford" className="absolute inset-0 h-full w-full object-cover" loading="eager" />
-              <div className="bg-linear-to-t from-black/60 via-black/10 to-transparent absolute inset-0"></div>
-              <div className="pointer-events-none absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-size-[28px_28px]"></div>
-              <div className="absolute left-3 sm:left-4 bottom-3 sm:bottom-4 flex items-center gap-2">
-                <span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg sm:rounded-xl bg-white/10 backdrop-blur shrink-0">
-                  <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-                </span>
-                <p className="text-[10px] sm:text-xs text-neutral-200">Systems/Software Engineer</p>
-              </div>
-            </div>
+                  {/* Left Column: Typography */}
+                  <div className="flex-1 px-6 md:px-12 lg:px-20 pt-28 pb-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10 relative z-20">
+                    <div className="mb-12">
+                      <div className="font-mono text-[10px] text-[#FF4500] uppercase tracking-widest mb-8 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-[#FF4500] rounded-full animate-pulse" />
+                        Principal Software Engineer
+                      </div>
 
-            {/* Content */}
-            <div className="flex flex-col sm:p-6 md:p-8 pt-4 pr-4 pb-4 pl-4 justify-center">
-              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-neutral-400">
-                <span className="inline-flex h-2 w-2 rounded-full bg-green-400/80"></span>
-                <span>Plan. Design. Build. Execute.</span>
-              </div>
-              <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white tracking-tighter font-light leading-tight">
-                Blaike A. Bradford
-              </h1>
-              <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-neutral-400 leading-relaxed">
-               I thrive on transforming complex challenges into elegant code, exploring the intersection of software engineering and artificial intelligence. 
-                      Whether architecting scalable systems or experimenting with cutting-edge ML frameworks, I&apos;m driven by the pursuit of building technology that solves real-world problems and pushes boundaries.
-              </p>
-              <div className="sm:mt-6 flex flex-col lg:flex-row lg:items-center mt-6 gap-x-3 gap-y-3 items-stretch">
-                {/* Animated Gradient Button */}
-                <a
-                  href="https://github.com/Blaikebrad24"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="gradient-button"
-                >
-                  <span className="inner">
-                    View Projects
-                    <ArrowRight className="icon w-4 h-4" />
-                  </span>
-                </a>
+                      <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] tracking-tighter font-light text-white leading-[1.05]">
+                        <span>Architect.</span><br />
+                        <span className="text-zinc-500">Engineer.</span><br />
+                        <span className="text-[#FF4500]">Deliver.</span>
+                      </h1>
+                    </div>
 
-                {/* Animated Border Button */}
-                <a
-                  href="https://www.linkedin.com/in/blaikebradford/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-wrapper"
-                  style={{
-                    "--dot-size": "8px",
-                    "--line-weight": "1px",
-                    "--line-distance": "0.8rem 1rem",
-                    "--animation-speed": "0.35s",
-                    "--dot-color": "#fffa",
-                    "--line-color": "#fffa",
-                    "--grid-color": "#fff3",
-                    position: "relative",
-                    display: "inline-flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "auto",
-                    height: "auto",
-                    padding: "var(--line-distance)",
-                    backgroundColor: "rgba(0, 0, 0, 0)",
-                    userSelect: "none"
-                  } as React.CSSProperties}
-                >
-                  <div className="line horizontal top"></div>
-                  <div className="line vertical right"></div>
-                  <div className="line horizontal bottom"></div>
-                  <div className="line vertical left"></div>
-                  <div className="dot top left"></div>
-                  <div className="dot top right"></div>
-                  <div className="dot bottom right"></div>
-                  <div className="dot bottom left"></div>
-                  <button className="btn bg-transparent" style={{
-                    maskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)",
-                    WebkitMaskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)"
+                    <div className="flex flex-col md:flex-row gap-8 justify-between items-start w-full max-w-2xl mt-8">
+                      <p className="text-[10px] font-mono text-zinc-500 leading-relaxed max-w-sm uppercase tracking-widest">
+                        9 years architecting mission-critical telecom systems supporting 300,000+ subscribers and $40M–50M annual revenue. First engineer in program&apos;s 30-year history to deploy production server code.
+                      </p>
+
+                      <a
+                        href="#projects"
+                        className="group flex items-center gap-3 text-[10px] uppercase tracking-widest text-[#F4F3ED] bg-[#FF4500] hover:bg-[#FF4500]/90 px-6 py-3 transition-colors duration-300 shrink-0"
+                      >
+                        View Work
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Sphere + Photo Carousel */}
+                  <div className="w-full lg:w-[45%] flex flex-col relative z-20 min-h-[50vh] lg:min-h-0 bg-[#050505] overflow-hidden">
+                    <HeroCanvas />
+                    <PhotoCarousel />
+
+                    {/* Corner stats */}
+                    <div className="absolute bottom-12 right-8 z-30 flex flex-col items-end gap-2 text-[10px] font-mono text-zinc-500 uppercase tracking-widest text-right">
+                      <span className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-[#FF4500] rounded-full animate-pulse" />
+                        AT&T | Dallas, TX
+                      </span>
+                      <span>Cloud Architect</span>
+                      <span>Technical Lead</span>
+                    </div>
+                  </div>
+
+                  {/* Marquee */}
+                  <div className="absolute bottom-0 left-0 w-full h-8 border-t border-white/10 bg-[#0A0A0A] text-zinc-500 font-mono text-[10px] uppercase flex items-center overflow-hidden z-30">
+                    <div className="marquee-track flex whitespace-nowrap gap-12 pl-12 items-center">
+                      <span>OIDC Authentication</span>
+                      <span className="text-white">Cloud Architecture</span>
+                      <span>Microservices</span>
+                      <span className="text-[#FF4500]">Docker & Kubernetes</span>
+                      <span>CI/CD Pipelines</span>
+                      <span className="text-white">Spring Boot</span>
+                      <span>Next.js & React</span>
+                      <span className="text-[#FF4500]">Azure Infrastructure</span>
+                      <span>Terraform IaC</span>
+                      <span className="text-white">Python & Flask</span>
+                      {/* Duplicate for seamless loop */}
+                      <span>OIDC Authentication</span>
+                      <span className="text-white">Cloud Architecture</span>
+                      <span>Microservices</span>
+                      <span className="text-[#FF4500]">Docker & Kubernetes</span>
+                      <span>CI/CD Pipelines</span>
+                      <span className="text-white">Spring Boot</span>
+                      <span>Next.js & React</span>
+                      <span className="text-[#FF4500]">Azure Infrastructure</span>
+                      <span>Terraform IaC</span>
+                      <span className="text-white">Python & Flask</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ============================================================ */}
+                {/* SECTION 2: Expertise Showcase                                 */}
+                {/* ============================================================ */}
+                <div id="expertise" className="relative w-full overflow-hidden px-6 py-24 md:px-12 lg:px-20 border-b border-white/10">
+                  {/* Grid Lines */}
+                  <div className="absolute inset-0 pointer-events-none flex justify-between z-0">
+                    <div className="w-[1px] h-full bg-white/5 relative left-[8%] hidden md:block" />
+                    <div className="w-[1px] h-full bg-white/5 relative left-[40%] hidden lg:block" />
+                    <div className="w-[1px] h-full bg-white/5 relative right-[8%] hidden md:block" />
+                  </div>
+
+                  <header className="absolute top-0 left-0 w-full h-12 border-b border-white/10 flex items-center justify-between px-6 lg:px-12 z-30 bg-[#0F0F0F]/80 backdrop-blur-sm">
+                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-white/20" />
+                      Core Expertise
+                    </div>
+                  </header>
+
+                  <div className="text-center mb-16 relative z-10 mt-8">
+                    <div className="font-mono text-[10px] text-[#FF4500] uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
+                      Technical Domain
+                    </div>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-light text-white mb-4">What I Build</h2>
+                    <p className="text-xs font-mono tracking-widest uppercase text-zinc-500 max-w-xl mx-auto">
+                      Enterprise-grade systems across authentication, cloud infrastructure, and full-stack development.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto relative z-10">
+                    {/* Card 1: Enterprise Auth */}
+                    <div className="relative bg-[#050505] flex flex-col border border-white/10 p-6 h-[500px]">
+                      <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-mono text-zinc-500 mb-8 border-b border-white/10 pb-4">
+                        <span>Authentication</span>
+                      </div>
+                      <div className="flex-1 flex flex-col gap-5 overflow-y-auto custom-scrollbar pr-2">
+                        <div className="bg-zinc-900 border border-white/5 p-4 text-sm text-zinc-300 font-light">
+                          <h4 className="text-white font-medium mb-2">OIDC Authentication Gateway</h4>
+                          <p className="text-zinc-400 text-xs leading-relaxed">Architected and deployed production OIDC authentication gateway using Docker, Nginx reverse proxy, and Python for nationwide priority telecom services.</p>
+                        </div>
+                        <div className="bg-zinc-900 border border-white/5 p-4 text-sm text-zinc-300 font-light">
+                          <h4 className="text-white font-medium mb-2">Provider Migration</h4>
+                          <p className="text-zinc-400 text-xs leading-relaxed">Led enterprise OIDC provider migration affecting 300,000+ users and $40–50M revenue-generating applications with zero downtime.</p>
+                        </div>
+                        <div className="bg-[#FF4500]/10 border border-[#FF4500]/30 p-4 text-sm font-light">
+                          <h4 className="text-[#FF4500] font-medium mb-2 text-xs uppercase tracking-widest">Recognition</h4>
+                          <p className="text-zinc-300 text-xs leading-relaxed">Received company Connection Award for architecture solving multi-year authentication gaps and critical security requirements.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card 2: Cloud Infrastructure (Highlighted) */}
+                    <div className="relative bg-[#FF4500] flex flex-col items-center justify-between border border-white/10 p-6 h-[500px] text-center lg:-translate-y-4 shadow-2xl shadow-black group overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#FFB800]/40 via-transparent to-[#9A00FF]/30 mix-blend-overlay blur-2xl transition-transform duration-[2s] group-hover:scale-125 group-hover:rotate-3" />
+                      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
+
+                      <div className="relative z-10 text-[10px] uppercase tracking-widest font-mono text-[#F4F3ED]/80 mix-blend-plus-lighter w-full flex justify-between">
+                        <span>Cloud Architecture</span>
+                        <span>Active</span>
+                      </div>
+
+                      <div className="relative z-10 flex flex-col items-center my-8 mix-blend-plus-lighter">
+                        <div className="text-6xl font-light text-white tracking-tighter mb-2">$100K+</div>
+                        <p className="text-[10px] font-mono tracking-widest uppercase text-[#F4F3ED]/80 mb-6">Annual Cost Savings</p>
+                        <div className="text-3xl font-light text-white tracking-tighter mb-2">40%</div>
+                        <p className="text-[10px] font-mono tracking-widest uppercase text-[#F4F3ED]/80">Infrastructure Reduction</p>
+                      </div>
+
+                      <div className="relative z-10 w-full mix-blend-plus-lighter text-[#F4F3ED]">
+                        <p className="text-xs leading-relaxed opacity-80 mb-4">Serverless migration, Terraform automation, CI/CD pipelines reducing deployment from 4 hours to 15 minutes.</p>
+                        <div className="flex flex-wrap justify-center gap-2 text-[10px] font-mono uppercase tracking-widest opacity-60">
+                          <span>Azure</span>
+                          <span>·</span>
+                          <span>Terraform</span>
+                          <span>·</span>
+                          <span>Docker</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card 3: Full-Stack Development */}
+                    <div className="relative bg-[#050505] flex flex-col border border-white/10 p-6 h-[500px]">
+                      <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-mono text-zinc-500 mb-8 border-b border-white/10 pb-4">
+                        <span>Full-Stack</span>
+                      </div>
+                      <div className="flex-1 flex flex-col gap-4">
+                        <div className="flex justify-between items-center p-4 border border-white/10 bg-zinc-900/30">
+                          <div>
+                            <div className="text-sm font-medium text-white mb-1">3 Production Apps</div>
+                            <div className="text-[10px] text-zinc-500 font-mono tracking-widest uppercase">Spring Boot + Next.js + Redis</div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between items-center p-4 border border-white/10 bg-zinc-900/30">
+                          <div>
+                            <div className="text-sm font-medium text-white mb-1">100K+ Daily Transactions</div>
+                            <div className="text-[10px] text-zinc-500 font-mono tracking-widest uppercase">Sub-200ms Response Times</div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between items-center p-4 border border-white/10 bg-zinc-900/30">
+                          <div>
+                            <div className="text-sm font-medium text-white mb-1">Operations Dashboard</div>
+                            <div className="text-[10px] text-zinc-500 font-mono tracking-widest uppercase">Azure Container Apps</div>
+                          </div>
+                        </div>
+                        <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-3">
+                          <div className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 mb-1">Tech Stack</div>
+                          <div className="flex flex-wrap gap-2">
+                            {["Java", "Python", "TypeScript", "Spring Boot", "Next.js", "Flask"].map((tech) => (
+                              <span key={tech} className="px-2 py-1 text-[10px] font-mono uppercase tracking-widest border border-white/10 text-zinc-400 bg-zinc-900/50">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ============================================================ */}
+                {/* SECTION 3: Technical Skills Grid                              */}
+                {/* ============================================================ */}
+                <div className="relative w-full overflow-hidden px-6 py-24 md:px-12 lg:px-20 border-b border-white/10">
+                  <div className="absolute inset-0 pointer-events-none flex justify-between z-0">
+                    <div className="w-[1px] h-full bg-white/5 relative left-[8%] hidden md:block" />
+                    <div className="w-[1px] h-full bg-white/5 relative left-[40%] hidden lg:block" />
+                    <div className="w-[1px] h-full bg-white/5 relative right-[8%] hidden md:block" />
+                  </div>
+
+                  <header className="absolute top-0 left-0 w-full h-12 border-b border-white/10 flex items-center justify-between px-6 lg:px-12 z-30 bg-[#0F0F0F]/80 backdrop-blur-sm">
+                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-white/20" />
+                      Infrastructure
+                    </div>
+                  </header>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 max-w-6xl mx-auto relative z-10 mt-8">
+                    {/* Skill 1: Cloud & DevOps */}
+                    <div className="group flex flex-col h-full cursor-default">
+                      <div className="aspect-[4/3] w-full mb-6 overflow-hidden border border-white/10 relative bg-[#050505] flex items-center justify-center">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#FF4500]/10 via-transparent to-zinc-900 group-hover:from-[#FF4500]/20 transition-all duration-700" />
+                        <div className="text-center relative z-10 p-6">
+                          <div className="text-4xl font-light text-white tracking-tighter mb-2">200+</div>
+                          <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">Hours Saved Quarterly</p>
+                          <p className="text-[10px] font-mono uppercase tracking-widest text-[#FF4500] mt-1">Via Automation</p>
+                        </div>
+                      </div>
+                      <h4 className="text-xl font-light tracking-tight text-white mb-2">Cloud & DevOps</h4>
+                      <div className="flex items-center gap-2 text-[10px] text-[#FF4500] mb-3 font-mono uppercase tracking-widest">
+                        <span>Azure</span>
+                        <span>·</span>
+                        <span>Terraform</span>
+                        <span>·</span>
+                        <span>CI/CD</span>
+                      </div>
+                      <p className="text-sm text-zinc-400 font-light border-t border-white/10 pt-4 leading-relaxed">
+                        Sole cloud architect managing Azure infrastructure across production and non-production environments. Designed CI/CD pipelines for 30+ engineers.
+                      </p>
+                    </div>
+
+                    {/* Skill 2: Security & Monitoring */}
+                    <div className="group flex flex-col h-full cursor-default md:translate-y-8">
+                      <div className="aspect-[4/3] w-full mb-6 overflow-hidden border border-white/10 relative bg-[#050505] flex items-center justify-center">
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-zinc-900 group-hover:from-emerald-500/20 transition-all duration-700" />
+                        <div className="text-center relative z-10 p-6">
+                          <div className="text-4xl font-light text-white tracking-tighter mb-2">0</div>
+                          <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">Security Incidents</p>
+                          <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 mt-1">Over 24 Months</p>
+                        </div>
+                      </div>
+                      <h4 className="text-xl font-light tracking-tight text-white mb-2">Security & Monitoring</h4>
+                      <div className="flex items-center gap-2 text-[10px] text-[#FF4500] mb-3 font-mono uppercase tracking-widest">
+                        <span>SNMP</span>
+                        <span>·</span>
+                        <span>FIPS 140-2</span>
+                        <span>·</span>
+                        <span>OIDC</span>
+                      </div>
+                      <p className="text-sm text-zinc-400 font-light border-t border-white/10 pt-4 leading-relaxed">
+                        Python/Flask SNMP monitoring with sub-second alerts. Reduced incident response by 60% through automated failover and real-time alerting.
+                      </p>
+                    </div>
+
+                    {/* Skill 3: Architecture & Data */}
+                    <div className="group flex flex-col h-full cursor-default">
+                      <div className="aspect-[4/3] w-full mb-6 overflow-hidden border border-white/10 relative bg-[#050505] flex items-center justify-center">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-zinc-900 group-hover:from-blue-500/20 transition-all duration-700" />
+                        <div className="text-center relative z-10 p-6">
+                          <div className="text-4xl font-light text-white tracking-tighter mb-2">1M+</div>
+                          <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">Daily Data Points</p>
+                          <p className="text-[10px] font-mono uppercase tracking-widest text-blue-400 mt-1">Real-Time Processing</p>
+                        </div>
+                      </div>
+                      <h4 className="text-xl font-light tracking-tight text-white mb-2">Architecture & Data</h4>
+                      <div className="flex items-center gap-2 text-[10px] text-[#FF4500] mb-3 font-mono uppercase tracking-widest">
+                        <span>Microservices</span>
+                        <span>·</span>
+                        <span>REST/GraphQL</span>
+                      </div>
+                      <p className="text-sm text-zinc-400 font-light border-t border-white/10 pt-4 leading-relaxed">
+                        Fault-tolerant microservices with automated failover. REST APIs and GraphQL interfaces supporting mission-critical telecom operations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ============================================================ */}
+                {/* SECTION 4: Career Impact                                      */}
+                {/* ============================================================ */}
+                <div id="impact" className="relative w-full overflow-hidden flex flex-col border-b border-white/10">
+                  <header className="absolute top-0 left-0 w-full h-12 border-b border-white/10 flex items-center justify-between px-6 lg:px-12 z-30 bg-[#0F0F0F]/80 backdrop-blur-sm">
+                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-white/20" />
+                      Performance Metrics
+                    </div>
+                  </header>
+
+                  <div className="absolute inset-0 z-0 pointer-events-none opacity-20" style={{
+                    backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
+                    backgroundSize: "64px 64px",
+                    maskImage: "linear-gradient(to bottom, black 0%, transparent 80%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 0%, transparent 80%)",
+                  }} />
+
+                  <div className="px-6 py-24 md:px-12 lg:px-20 w-full relative z-10 mt-8">
+                    <div className="flex flex-col items-center text-center mb-20">
+                      <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tighter font-light text-white mb-6 flex flex-wrap justify-center gap-x-3">
+                        <span>Engineered</span>{" "}
+                        <span className="text-[#FF4500]">for</span>{" "}
+                        <span>impact</span>
+                      </h2>
+                      <p className="text-[10px] text-zinc-500 font-mono tracking-widest uppercase max-w-xl leading-relaxed">
+                        Measurable results across enterprise authentication, cloud infrastructure, and software delivery at AT&T.
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto w-full">
+                      {/* Impact Card 1 */}
+                      <div className="relative p-[1px] bg-gradient-to-b from-white/10 to-transparent hover:from-white/20 transition-colors duration-700 group">
+                        <div className="h-full bg-[#050505] p-8 flex flex-col relative overflow-hidden border border-white/5">
+                          <div className="flex items-center gap-4 mb-8">
+                            <div className="w-10 h-10 border border-white/10 bg-zinc-900 flex items-center justify-center text-white font-medium text-sm">S</div>
+                            <div>
+                              <h4 className="text-[10px] font-mono tracking-widest uppercase text-white">Scale</h4>
+                              <p className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 mt-1">Telecom Infrastructure</p>
+                            </div>
+                          </div>
+                          <div className="text-3xl font-light text-white tracking-tighter mb-4">300,000+</div>
+                          <p className="text-sm text-zinc-300 font-light leading-relaxed grow">
+                            Government and first responder subscribers supported across LTE/5G networks through mission-critical priority telecom services.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Impact Card 2 (Highlight) */}
+                      <div className="relative p-[1px] bg-gradient-to-b from-[#FF4500]/50 to-transparent hover:from-[#FF4500]/70 transition-colors duration-700 group md:-translate-y-4 shadow-xl shadow-black">
+                        <div className="h-full bg-[#0F0F0F] p-8 flex flex-col relative overflow-hidden border border-white/10">
+                          <div className="flex items-center gap-4 mb-8">
+                            <div className="w-10 h-10 bg-[#FF4500] flex items-center justify-center text-white font-medium text-sm">1st</div>
+                            <div>
+                              <h4 className="text-[10px] font-mono tracking-widest uppercase text-white">Pioneer</h4>
+                              <p className="text-[10px] font-mono tracking-widest uppercase text-[#FF4500] mt-1">30-Year Program</p>
+                            </div>
+                          </div>
+                          <div className="text-3xl font-light text-white tracking-tighter mb-4">First Deploy</div>
+                          <p className="text-sm text-white font-light leading-relaxed grow">
+                            First engineer to design and deploy production server code in the program&apos;s 30-year history, establishing new technical standards for cloud-native authentication and infrastructure automation.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Impact Card 3 */}
+                      <div className="relative p-[1px] bg-gradient-to-b from-white/10 to-transparent hover:from-white/20 transition-colors duration-700 group">
+                        <div className="h-full bg-[#050505] p-8 flex flex-col relative overflow-hidden border border-white/5">
+                          <div className="flex items-center gap-4 mb-8">
+                            <div className="w-10 h-10 border border-white/10 bg-zinc-900 flex items-center justify-center text-white font-medium text-sm">R</div>
+                            <div>
+                              <h4 className="text-[10px] font-mono tracking-widest uppercase text-white">Reliability</h4>
+                              <p className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 mt-1">Enterprise Systems</p>
+                            </div>
+                          </div>
+                          <div className="text-3xl font-light text-white tracking-tighter mb-4">99.99%</div>
+                          <p className="text-sm text-zinc-300 font-light leading-relaxed grow">
+                            Uptime maintained for mission-critical systems. Zero security incidents over 24 months. Cross-functional collaboration with 13+ engineers across AT&T, HPE, Nokia, and government contractors.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ============================================================ */}
+                {/* SECTION 5: Experience Timeline                                */}
+                {/* ============================================================ */}
+                <div className="relative w-full overflow-hidden py-24 border-b border-white/10">
+                  <header className="absolute top-0 left-0 w-full h-12 border-b border-white/10 flex items-center justify-between px-6 lg:px-12 z-30 bg-[#0F0F0F]/80 backdrop-blur-sm">
+                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-white/20" />
+                      Career Timeline
+                    </div>
+                  </header>
+
+                  <div className="absolute top-[15%] left-0 w-full text-center pointer-events-none select-none z-0">
+                    <h2 className="text-[12vw] font-bold tracking-tighter text-white/[0.03] leading-none">
+                      EXPERIENCE
+                    </h2>
+                  </div>
+
+                  <div className="relative z-10 mb-12 px-6 lg:px-20 flex justify-between items-end mt-8">
+                    <p className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 max-w-xs">Professional experience in enterprise telecom and software engineering.</p>
+                    <div className="text-[10px] font-mono text-[#FF4500] uppercase tracking-widest flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#FF4500] rounded-full animate-pulse" />
+                      Currently Active
+                    </div>
+                  </div>
+
+                  <div className="relative overflow-hidden w-full" style={{
+                    maskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)",
+                    WebkitMaskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)",
                   }}>
-                    <span className="btn-text">LinkedIn connect</span>
-                  </button>
-                </a>
-              </div>
+                    <div className="carousel-track flex gap-6 px-6 pb-8">
+                      {/* AT&T Card */}
+                      <div className="min-w-[340px] md:min-w-[400px] bg-[#050505] p-6 border border-white/10 flex flex-col gap-4">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h3 className="text-lg font-light text-white tracking-tight">AT&T</h3>
+                            <p className="text-[10px] font-mono text-[#FF4500] uppercase tracking-widest mt-1">Nov 2017 – Present</p>
+                          </div>
+                          <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Dallas, TX</span>
+                        </div>
+                        <p className="text-sm text-zinc-300 font-light leading-relaxed">Principal Software Engineer, Cloud Architect & Technical Lead. Architecting mission-critical telecom systems supporting 300K+ subscribers.</p>
+                        <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono tracking-widest uppercase text-zinc-500">
+                          <span>Azure</span>
+                          <span>·</span>
+                          <span>Spring Boot</span>
+                          <span>·</span>
+                          <span>Docker</span>
+                          <span>·</span>
+                          <span>OIDC</span>
+                        </div>
+                      </div>
 
-              {/* Stats */}
-              <div className="mt-6 sm:mt-7 grid grid-cols-3 gap-3 sm:gap-4">
-                <div className="border-gradient before:rounded-3xl sm:before:rounded-4xl md:before:rounded-[24px] bg-neutral-900/60 rounded-3xl sm:rounded-4xl md:rounded-[24px] p-3 sm:p-4">
-                  <p className="text-[9px] sm:text-[10px] text-neutral-400">Experience</p>
-                  <p className="text-base font-semibold text-white tracking-tight mt-0.5 sm:mt-1 sm:text-lg md:text-sm">10+</p>
-                  <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400">Years</p>
-                </div>
-                <div className="border-gradient before:rounded-3xl sm:before:rounded-4xl md:before:rounded-[24px] bg-neutral-900/60 rounded-3xl sm:rounded-4xl md:rounded-[24px] p-3 sm:p-4">
-                  <p className="text-[9px] sm:text-[10px] text-neutral-400">Location</p>
-                  <p className="text-base font-semibold text-white tracking-tight mt-0.5 sm:mt-1 sm:text-lg md:text-sm truncate">Dallas</p>
-                  <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400">Texas, USA</p>
-                </div>
-                <div className="border-gradient before:rounded-3xl sm:before:rounded-4xl md:before:rounded-[24px] bg-neutral-900/60 border border-orange-400 rounded-3xl sm:rounded-4xl md:rounded-[24px] p-3 sm:p-4">
-                  <p className="text-[9px] sm:text-[10px] text-neutral-400">Role</p>
-                  <p className="mt-0.5 text-base font-semibold tracking-tight text-white sm:mt-1 sm:text-lg md:text-sm truncate">Sr. Systems</p>
-                  <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-400 truncate">Engineer @ AT&T</p>
-                </div>
-              </div>
-            </div>
-          </div>
+                      {/* Auth Architecture */}
+                      <div className="min-w-[340px] md:min-w-[400px] bg-[#0F0F0F] p-6 border border-[#FF4500]/30 flex flex-col gap-4">
+                        <h3 className="text-lg font-light text-white tracking-tight">Enterprise Auth Architecture</h3>
+                        <p className="text-sm text-zinc-300 font-light leading-relaxed">Designed and deployed production OIDC authentication gateway. Led complete authentication architecture redesign from concept through production over 8-month timeline.</p>
+                        <div className="mt-auto pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-[#FF4500]">
+                          Company Connection Award Recipient
+                        </div>
+                      </div>
 
-          {/* Lower info cards */}
-          <div className="mt-3 sm:mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-            {/* Card 1 */}
-            <div className="border-gradient animate-on-scroll animate-[fadeSlideIn_0.8s_ease-out_0.1s_both] flex flex-col overflow-hidden bg-neutral-900/40 h-80 sm:h-90 md:h-100 rounded-[24px] sm:rounded-[32px] ring-white/10 ring-1 justify-between">
-              <div className="h-full relative">
-                <div className="absolute inset-0 bg-linear-to-br from-neutral-800/50 via-neutral-900 to-black"></div>
-                <div className="bg-linear-to-t from-black/90 via-black/50 to-transparent absolute inset-0"></div>
-                <div className="flex flex-col sm:p-5 h-full pt-4 pr-4 pb-4 pl-4 relative justify-end">
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <span className="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-emerald-500/15 backdrop-blur text-emerald-300 shrink-0">
-                      <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </span>
-                    <div>
-                      <h4 className="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">AI Security Guard</h4>
-                      <p className="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Event-Driven Microservices Architecture, asynchronous containerized video surveillance system using Python & computer vision</p>
+                      {/* Cloud Infrastructure */}
+                      <div className="min-w-[340px] md:min-w-[400px] bg-[#050505] p-6 border border-white/10 flex flex-col gap-4">
+                        <h3 className="text-lg font-light text-white tracking-tight">Cloud Infrastructure</h3>
+                        <p className="text-sm text-zinc-300 font-light leading-relaxed">Sole cloud architect on 2-person team. Reduced cloud costs by $100K+ annually (40% reduction). Designed CI/CD pipelines reducing deployment from 4 hours to 15 minutes.</p>
+                        <div className="mt-auto pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-zinc-500">
+                          Terraform · Azure DevOps · GitHub Actions
+                        </div>
+                      </div>
+
+                      {/* Full-Stack */}
+                      <div className="min-w-[340px] md:min-w-[400px] bg-[#050505] p-6 border border-white/10 flex flex-col gap-4">
+                        <h3 className="text-lg font-light text-white tracking-tight">Full-Stack Development</h3>
+                        <p className="text-sm text-zinc-300 font-light leading-relaxed">Built 3 production applications with Spring Boot microservices, Next.js frontends, and Redis caching processing 100K+ daily transactions with sub-200ms response times.</p>
+                        <div className="mt-auto pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-zinc-500">
+                          Led architecture reviews with 13+ engineers
+                        </div>
+                      </div>
+
+                      {/* Safecom */}
+                      <div className="min-w-[340px] md:min-w-[400px] bg-[#050505] p-6 border border-white/10 flex flex-col gap-4">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h3 className="text-lg font-light text-white tracking-tight">Safecom-Wireless</h3>
+                            <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mt-1">Apr 2019 – Sep 2019</p>
+                          </div>
+                          <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Holmdel, NJ</span>
+                        </div>
+                        <p className="text-sm text-zinc-300 font-light leading-relaxed">Python Developer (Contract). Delivered Python GUI interface for embedded systems within first 2 sprints. Updated C++ embedded system functionality reducing memory footprint by 25%.</p>
+                        <div className="mt-auto pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-zinc-500">
+                          Python · C++ · Embedded Systems
+                        </div>
+                      </div>
+
+                      {/* Duplicates for infinite scroll */}
+                      <div className="min-w-[340px] md:min-w-[400px] bg-[#050505] p-6 border border-white/10 flex flex-col gap-4">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h3 className="text-lg font-light text-white tracking-tight">AT&T</h3>
+                            <p className="text-[10px] font-mono text-[#FF4500] uppercase tracking-widest mt-1">Nov 2017 – Present</p>
+                          </div>
+                          <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Dallas, TX</span>
+                        </div>
+                        <p className="text-sm text-zinc-300 font-light leading-relaxed">Principal Software Engineer, Cloud Architect & Technical Lead. Architecting mission-critical telecom systems supporting 300K+ subscribers.</p>
+                        <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono tracking-widest uppercase text-zinc-500">
+                          <span>Azure</span>
+                          <span>·</span>
+                          <span>Spring Boot</span>
+                          <span>·</span>
+                          <span>Docker</span>
+                          <span>·</span>
+                          <span>OIDC</span>
+                        </div>
+                      </div>
+
+                      <div className="min-w-[340px] md:min-w-[400px] bg-[#0F0F0F] p-6 border border-[#FF4500]/30 flex flex-col gap-4">
+                        <h3 className="text-lg font-light text-white tracking-tight">Enterprise Auth Architecture</h3>
+                        <p className="text-sm text-zinc-300 font-light leading-relaxed">Designed and deployed production OIDC authentication gateway. Led complete authentication architecture redesign from concept through production over 8-month timeline.</p>
+                        <div className="mt-auto pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-[#FF4500]">
+                          Company Connection Award Recipient
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Card 2 */}
-            <div className="border-gradient animate-on-scroll animate-[fadeSlideIn_0.8s_ease-out_0.15s_both] flex flex-col overflow-hidden bg-neutral-900/40 h-80 sm:h-90 md:h-100 rounded-[24px] sm:rounded-[32px] ring-white/10 ring-1 justify-between">
-              <div className="h-full relative">
-                <div className="absolute inset-0 bg-linear-to-br from-neutral-800/50 via-neutral-900 to-black"></div>
-                <div className="bg-linear-to-t from-black/90 via-black/50 to-transparent absolute inset-0"></div>
-                <div className="flex flex-col sm:p-5 h-full pt-4 pr-4 pb-4 pl-4 relative justify-end">
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <span className="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-indigo-500/15 backdrop-blur text-indigo-300 shrink-0">
-                      <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </span>
-                    <div>
-                      <h4 className="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-white">Packet-Vision</h4>
-                      <p className="mt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed">Networking & Data Visualization, monitor your network traffic in real-time using Wireshark & Python</p>
+                {/* ============================================================ */}
+                {/* SECTION 6: Projects                                           */}
+                {/* ============================================================ */}
+                <div id="projects" className="relative w-full overflow-hidden px-6 py-24 md:px-12 lg:px-20 border-b border-white/10">
+                  <div className="absolute inset-0 pointer-events-none flex justify-between z-0">
+                    <div className="w-[1px] h-full bg-white/5 relative left-[8%] hidden md:block" />
+                    <div className="w-[1px] h-full bg-white/5 relative left-[40%] hidden lg:block" />
+                    <div className="w-[1px] h-full bg-white/5 relative right-[8%] hidden md:block" />
+                  </div>
+
+                  <header className="absolute top-0 left-0 w-full h-12 border-b border-white/10 flex items-center justify-between px-6 lg:px-12 z-30 bg-[#0F0F0F]/80 backdrop-blur-sm">
+                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-white/20" />
+                      Open Source
                     </div>
+                  </header>
+
+                  <div className="relative z-10 mt-8 mb-12">
+                    <div className="font-mono text-[10px] text-[#FF4500] uppercase tracking-widest mb-4 flex items-center gap-2">
+                      GitHub Projects
+                    </div>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-light text-white mb-4">Featured Work</h2>
+                    <p className="text-xs font-mono tracking-widest uppercase text-zinc-500 max-w-xl">
+                      Open-source projects demonstrating full-stack development, from frontend interfaces to backend architecture.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 relative z-10">
+                    {projects.map((project, index) => (
+                      <ProjectCard key={project.id} project={project} index={index} />
+                    ))}
+                  </div>
+
+                  <div className="mt-12 flex justify-center relative z-10">
+                    <a
+                      href="https://github.com/Blaikebrad24?tab=repositories"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 text-[10px] uppercase tracking-widest text-zinc-400 hover:text-white border border-white/10 hover:border-white/30 px-6 py-3 transition-all duration-300"
+                    >
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                      View All Repositories
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </a>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Solutions Section */}
-        <section id="tech-stack" className="sm:px-6 sm:mt-6 sm:mb-12 lg:px-8 lg:ml-auto lg:mr-auto lg:mt-12 z-10 max-w-7xl mt-6 mr-auto  ml-auto pr-4 pl-4">
-          {/* Heading + CTA */}
-          {/* <div className="sm:mt-10 grid md:grid-cols-3 animate-on-scroll animate-[fadeSlideIn_0.7s_ease-out_0.1s_both] mt-10 gap-x-6 gap-y-6 items-start">
-            <div className="md:col-span-2">
-              <h2 className="leading-tight sm:text-4xl lg:text-7xl text-3xl font-light text-white tracking-tighter">
-                Tech Stack & Expertise
-              </h2>
-            </div>
-            <div className="flex md:justify-end">
-              <div className="max-w-sm">
-                <p className="sm:text-sm leading-relaxed text-xs text-neutral-400">
-                  From frontend to backend, cloud infrastructure to AI integration - delivering comprehensive solutions across the stack.
-                </p>
-                <div className="mt-3">
-                  <a
-                    href="https://github.com/Blaikebrad24"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-wrapper"
-                    style={{
-                      "--dot-size": "8px",
-                      "--line-weight": "1px",
-                      "--line-distance": "0.8rem 1rem",
-                      "--animation-speed": "0.35s",
-                      "--dot-color": "#fffa",
-                      "--line-color": "#fffa",
-                      "--grid-color": "#fff3",
-                      position: "relative",
-                      display: "inline-flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      width: "auto",
-                      height: "auto",
-                      padding: "var(--line-distance)",
-                      backgroundColor: "rgba(0, 0, 0, 0)",
-                      userSelect: "none"
-                    } as React.CSSProperties}
-                  >
-                    <div className="line horizontal top"></div>
-                    <div className="line vertical right"></div>
-                    <div className="line horizontal bottom"></div>
-                    <div className="line vertical left"></div>
-                    <div className="dot top left"></div>
-                    <div className="dot top right"></div>
-                    <div className="dot bottom right"></div>
-                    <div className="dot bottom left"></div>
-                    <button className="btn bg-transparent" style={{
-                      maskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)",
-                      WebkitMaskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)"
-                    }}>
-                      <span className="btn-text">View on GitHub</span>
-                      <ArrowRight className="ml-2 w-4 h-4 opacity-60" />
-                    </button>
-                  </a>
+                {/* ============================================================ */}
+                {/* SECTION 7: Footer                                             */}
+                {/* ============================================================ */}
+                <div id="contact" className="relative w-full min-h-[80vh] overflow-hidden flex flex-col">
+                  <header className="absolute top-0 left-0 w-full h-12 border-b border-white/10 flex items-center justify-between px-6 lg:px-12 z-30 bg-[#0F0F0F]/80 backdrop-blur-sm">
+                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-[#FF4500]" />
+                      Connect
+                    </div>
+                  </header>
+
+                  {/* Background Grid */}
+                  <div className="absolute inset-0 pointer-events-none z-0 flex justify-center opacity-20">
+                    <div className="w-full h-full grid grid-cols-2 md:grid-cols-4 relative">
+                      <div className="border-l border-dashed border-white/10 relative">
+                        <div className="absolute top-32 -left-[2.5px] w-[4px] h-[4px] bg-white/40" />
+                        <div className="absolute bottom-48 -left-[2.5px] w-[4px] h-[4px] bg-white/40" />
+                      </div>
+                      <div className="border-l border-dashed border-white/10 relative hidden md:block">
+                        <div className="absolute top-64 -left-[2.5px] w-[4px] h-[4px] bg-white/40" />
+                      </div>
+                      <div className="border-l border-dashed border-white/10 relative hidden md:block">
+                        <div className="absolute top-24 -left-[2.5px] w-[4px] h-[4px] bg-white/40" />
+                      </div>
+                      <div className="border-l border-r border-dashed border-white/10 relative">
+                        <div className="absolute top-48 -right-[2.5px] w-[4px] h-[4px] bg-white/40" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Animated Data Tracks */}
+                  <div className="absolute inset-0 pointer-events-none flex justify-center items-end" style={{ perspective: "1000px", transformStyle: "preserve-3d" }}>
+                    <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-[#0F0F0F] to-transparent z-10" />
+                    <div className="w-[150%] md:w-[120%] h-[150vh] relative flex justify-center origin-bottom opacity-40" style={{ transform: "rotateX(72deg) translateZ(-100px)", transformStyle: "preserve-3d" }}>
+                      <div className="absolute inset-0 w-full h-[200%] flex" style={{ animation: "flow 15s linear infinite" }}>
+                        <div className="absolute left-[15%] w-[12%] h-full bg-gradient-to-b from-[#FF4500]/80 to-[#FF4500]/10" />
+                        <div className="absolute left-[27%] w-[18%] h-full bg-gradient-to-b from-white/20 to-transparent" />
+                        <div className="absolute left-[45%] w-[8%] h-full bg-[#0F0F0F]" />
+                        <div className="absolute left-[53%] w-[22%] h-full bg-gradient-to-b from-zinc-700/80 to-zinc-900/10" />
+                        <div className="absolute left-[75%] w-[15%] h-full bg-gradient-to-b from-[#FF4500]/60 to-[#FF4500]/5" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative z-10 w-full px-6 lg:px-20 pt-32">
+                    <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8">
+
+                      {/* Left Links */}
+                      <div className="flex gap-12 md:gap-24 font-light">
+                        <div className="flex flex-col gap-4">
+                          <span className="text-[10px] text-[#FF4500] font-mono tracking-widest uppercase mb-2">Connect</span>
+                          <a href="https://github.com/Blaikebrad24" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">GitHub</a>
+                          <a href="https://www.linkedin.com/in/blaikebradford/" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">LinkedIn</a>
+                          <a href="https://x.com/BlaikeBrad_dev" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">X / Twitter</a>
+                          <a href="mailto:Blaike.a.bradford@icloud.com" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">Email</a>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                          <span className="text-[10px] text-[#FF4500] font-mono tracking-widest uppercase mb-2">Education</span>
+                          <span className="text-sm text-zinc-400">B.S. Applied Mathematics</span>
+                          <span className="text-sm text-zinc-400">& Computer Science</span>
+                          <span className="text-sm text-zinc-500">Texas State University, 2017</span>
+                          <span className="text-sm text-zinc-500">Cyber Security Nano Degree</span>
+                        </div>
+                      </div>
+
+                      {/* Right CTA */}
+                      <div className="max-w-sm flex flex-col items-start bg-[#050505]/80 backdrop-blur-sm p-8 border border-white/10 relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-[#FF4500]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                        <h2 className="text-3xl tracking-tight font-light text-white mb-3 relative z-10">Let&apos;s Build Together</h2>
+                        <p className="text-xs text-zinc-400 mb-8 leading-relaxed font-mono tracking-widest uppercase relative z-10">
+                          Principal Software Engineer specializing in cloud architecture, enterprise auth, and full-stack development.
+                        </p>
+
+                        <a
+                          href="mailto:Blaike.a.bradford@icloud.com"
+                          className="w-full relative px-6 py-4 text-[10px] uppercase tracking-widest font-medium text-[#F4F3ED] bg-[#FF4500] hover:bg-[#FF4500]/80 transition-colors flex justify-center items-center gap-2 border border-[#FF4500]"
+                        >
+                          Get In Touch
+                          <ArrowRight className="w-3 h-3" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto p-6 lg:px-20 relative z-10 flex justify-between items-center text-[10px] font-mono tracking-widest uppercase text-zinc-600 border-t border-white/10 bg-[#0A0A0A]">
+                    <span>&copy; {new Date().getFullYear()} Blaike Bradford</span>
+                    <div className="font-medium tracking-tighter text-white/50">BRADFORD /// SYS</div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div> */}
 
-          {/* Cards */}
-
-
-          {/* KPIs */}
-          <div className="sm:mt-4 grid grid-cols-3 sm:gap-4 animate-on-scroll animate-[fadeSlideIn_0.7s_ease-out_0.05s_both] mt-4 gap-x-3 gap-y-3">
-            <div className="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
-              <p className="text-[10px] sm:text-xs text-green-400">GitHub</p>
-              <p className="sm:text-lg md:text-xl text-base font-semibold text-white tracking-tight mt-0.5 mr-2 truncate">@Blaikebrad24</p>
-              <p className="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Open source projects</p>
-            </div>
-            <div className="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
-              <p className="text-[10px] sm:text-xs text-blue-400">LinkedIn</p>
-              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white truncate">Blaike Bradford</p>
-              <p className="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Professional network</p>
-            </div>
-            <div className="border-gradient sm:rounded-[32px] sm:p-8 bg-neutral-900/40 rounded-[24px] pt-5 pr-5 pb-5 pl-5 backdrop-blur">
-              <p className="text-[12px] sm:text-xs text-orange-600">X</p>
-              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white truncate">@BlaikeBrad_dev</p>
-              <p className="text-[10px] sm:text-xs text-neutral-400 mt-0.5">Developer updates</p>
+              </main>
             </div>
           </div>
         </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="sm:px-6 sm:mt-6 sm:mb-20 lg:px-8 lg:ml-auto lg:mr-auto lg:mt-12 z-10 max-w-7xl mt-6 mr-auto mb-16 ml-auto pr-4 pl-4">
-          {/* Heading */}
-          <div className="sm:mt-4 animate-on-scroll animate-[fadeSlideIn_0.7s_ease-out_0.1s_both] mt-4 mb-8">
-            <h2 className="leading-tight sm:text-4xl lg:text-7xl text-3xl font-light text-white tracking-tighter mb-4">
-              Featured Projects
-            </h2>
-            <p className="sm:text-sm leading-relaxed text-xs text-neutral-400 max-w-2xl">
-              Explore my portfolio of open-source projects and applications. Each project demonstrates different aspects of full-stack development, from frontend interfaces to backend architecture.
-            </p>
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </div>
-
-          {/* View All Projects Link */}
-          <div className="mt-8 sm:mt-12 flex justify-center animate-on-scroll animate-[fadeSlideIn_0.7s_ease-out_0.2s_both]">
-            <a
-              href="https://github.com/Blaikebrad24?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-wrapper"
-              style={{
-                "--dot-size": "8px",
-                "--line-weight": "1px",
-                "--line-distance": "0.8rem 1rem",
-                "--animation-speed": "0.35s",
-                "--dot-color": "#fffa",
-                "--line-color": "#fffa",
-                "--grid-color": "#fff3",
-                position: "relative",
-                display: "inline-flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "auto",
-                height: "auto",
-                padding: "var(--line-distance)",
-                backgroundColor: "rgba(0, 0, 0, 0)",
-                userSelect: "none"
-              } as React.CSSProperties}
-            >
-              <div className="line horizontal top"></div>
-              <div className="line vertical right"></div>
-              <div className="line horizontal bottom"></div>
-              <div className="line vertical left"></div>
-              <div className="dot top left"></div>
-              <div className="dot top right"></div>
-              <div className="dot bottom right"></div>
-              <div className="dot bottom left"></div>
-              <button className="btn bg-transparent" style={{
-                maskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)",
-                WebkitMaskImage: "linear-gradient(110deg, transparent, black 35%, black 65%, transparent)"
-              }}>
-                <Github className="w-4 h-4 opacity-60" />
-                <span className="btn-text">View All Repositories</span>
-              </button>
-            </a>
-          </div>
-        </section>
-      </main>
-    </div>
+      </div>
     </ClientWrapper>
   );
 }

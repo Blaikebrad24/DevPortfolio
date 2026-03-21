@@ -122,6 +122,17 @@
   }
 }
 
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 69, 0, 0.3); border-radius: 2px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 69, 0, 0.6); }
+
 /* Better touch response */
 .touch-manipulation {
   touch-action: manipulation;
@@ -136,11 +147,6 @@
   overflow: hidden;
 }
 
-/* Ensure smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Hide scrollbar but keep functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;
@@ -151,25 +157,45 @@ html {
   display: none;
 }
 
-/* Border Gradient */
-.border-gradient {
-  position: relative;
+/* ===== New UI Animations ===== */
+
+/* Marquee infinite scroll */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-.border-gradient::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  background: linear-gradient(225deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.0) 100%);
-  pointer-events: none;
+.marquee-track {
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
 }
 
-/* Animation Keyframe */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Experience carousel scroll */
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.carousel-track {
+  width: max-content;
+  animation: carousel-scroll 40s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* Flow animation for footer data tracks */
+@keyframes flow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Fade slide in animation */
 @keyframes fadeSlideIn {
   0% {
     opacity: 0;
@@ -190,6 +216,24 @@ html {
 
 .animate-on-scroll.animate {
   animation-play-state: running !important;
+}
+
+/* Border Gradient */
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: linear-gradient(225deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.0) 100%);
+  pointer-events: none;
 }
 
 /* Gradient Button */
@@ -355,14 +399,8 @@ html {
 }
 
 @keyframes move-top-left {
-  90% {
-    opacity: .6;
-  }
-  100% {
-    opacity: 0;
-    top: 0;
-    left: 0;
-  }
+  90% { opacity: .6; }
+  100% { opacity: 0; top: 0; left: 0; }
 }
 
 .btn-wrapper:has(.btn:hover) .dot.top.right,
@@ -374,14 +412,8 @@ html {
 }
 
 @keyframes move-top-right {
-  80% {
-    opacity: .6;
-  }
-  100% {
-    opacity: 0;
-    top: 0;
-    right: 0;
-  }
+  80% { opacity: .6; }
+  100% { opacity: 0; top: 0; right: 0; }
 }
 
 .btn-wrapper:has(.btn:hover) .dot.bottom.right,
@@ -393,14 +425,8 @@ html {
 }
 
 @keyframes move-bottom-right {
-  80% {
-    opacity: .6;
-  }
-  100% {
-    opacity: 0;
-    bottom: 0;
-    right: 0;
-  }
+  80% { opacity: .6; }
+  100% { opacity: 0; bottom: 0; right: 0; }
 }
 
 .btn-wrapper:has(.btn:hover) .dot.bottom.left,
@@ -412,14 +438,8 @@ html {
 }
 
 @keyframes move-bottom-left {
-  80% {
-    opacity: .6;
-  }
-  100% {
-    opacity: 0;
-    bottom: 0;
-    left: 0;
-  }
+  80% { opacity: .6; }
+  100% { opacity: 0; bottom: 0; left: 0; }
 }
 
 .btn-wrapper .line,
@@ -449,9 +469,7 @@ html {
 }
 
 @keyframes draw-top {
-  100% {
-    transform: rotate(0deg) scaleX(1);
-  }
+  100% { transform: rotate(0deg) scaleX(1); }
 }
 
 .btn-wrapper .line.bottom,
@@ -468,9 +486,7 @@ html {
 }
 
 @keyframes draw-bottom {
-  100% {
-    transform: rotate(0deg) scaleX(1);
-  }
+  100% { transform: rotate(0deg) scaleX(1); }
 }
 
 .btn-wrapper .line.vertical,
@@ -494,9 +510,7 @@ html {
 }
 
 @keyframes draw-left {
-  100% {
-    transform: rotate(0deg) scaleY(1);
-  }
+  100% { transform: rotate(0deg) scaleY(1); }
 }
 
 .btn-wrapper .line.right,
@@ -513,7 +527,5 @@ html {
 }
 
 @keyframes draw-right {
-  100% {
-    transform: rotate(0deg) scaleY(1);
-  }
+  100% { transform: rotate(0deg) scaleY(1); }
 }
