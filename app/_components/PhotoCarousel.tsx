@@ -54,7 +54,7 @@ export default function PhotoCarousel() {
                 src={photo}
                 alt={`Blaike Bradford ${index + 1}`}
                 fill
-                className="object-cover"
+                className="object-cover rounded-3xl"
                 priority={index === 0}
               />
             </div>
