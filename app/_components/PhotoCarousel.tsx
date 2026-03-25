@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const photos = [
-  "/BB_NewHaven.jpeg",
+  "/ProfilePic.jpg",
   // Add more personal photos here:
   // "/photos/photo2.jpg",
   // "/photos/photo3.jpg",

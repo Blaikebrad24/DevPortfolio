@@ -661,7 +661,7 @@ export default async function Home() {
                           <span className="text-[10px] text-[#FF4500] font-mono tracking-widest uppercase mb-2">Connect</span>
                           <a href="https://github.com/Blaikebrad24" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">GitHub</a>
                           <a href="https://www.linkedin.com/in/blaikebradford/" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">LinkedIn</a>
-                          <a href="https://x.com/BlaikeBrad_dev" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">X / Twitter</a>
+                          <a href="https://x.com/Blaike1x" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">X / Twitter</a>
                           <a href="mailto:Blaike.a.bradford@icloud.com" className="text-sm text-zinc-400 hover:text-white transition-colors duration-300">Email</a>
                         </div>
                         <div className="flex flex-col gap-4">
