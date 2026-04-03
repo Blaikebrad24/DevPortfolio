@@ -5,6 +5,7 @@ import { fetchGithubRepos, GithubProject } from "./fetchGithub";
 const FEATURED_REPOS_IDS = [
     "AzureMicroservices",
     "AI-Security-Guard",
+    "Java_RAG_Application",
     "BotMarketplace_demo",
     "RealTimeSocketIO",
     "SpringSecurityDemo"

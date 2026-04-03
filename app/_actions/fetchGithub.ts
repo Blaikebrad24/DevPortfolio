@@ -82,6 +82,23 @@ async function _fetchGithubRepos(): Promise<GithubProject[]>
                     takeaways: ["Spinning up a backend Docker container with a AI model"],
                 },
             },
+            "Java_RAG_Application":{
+                design: {
+                    overview: "My first attempt at understanding RAG design patterns and using Spring AI PgVector. I am building this project to get a more in-depth understanding then I will transfer this over to Golang for personal projects.",
+                    challenges: ["Understanding the documentation well enough to configure my application correctly"],
+                    solutions: ["No solutions yet, this repository is relatively new and still being completed"],
+                },
+                process: {
+                    timeline: "I am trying to make this less than 2 weeks build so that I can focus on building this with Golang. I don't plan on using Spring AI and potentially Spring altogether after hearing great things about Golang.",
+                    approach: "Understanding the documentation and converting the configurations to my application, the examples I am using are not using PgVector in a Docker container so I have some extra setup tasks to do, for this to run.",
+                    keyMilestones: ["Populating the PgVector database with some document chunks"],
+                },
+                learnings: {
+                    ups: ["So far using a different database"],
+                    downs: ["No downs, just need to complete the project"],
+                    takeaways: ["None so far"]
+                }
+            },
             "BotMarketplace_demo": {
                 design: {
                     overview: "This application sparked the idea for the AI-Security-Guard in a way, it's also the first application that I used AI-assistance with Claude. I wanted to test how quickly I could build a FastAPI application since I've had most API development experience with Spring Boot.",
