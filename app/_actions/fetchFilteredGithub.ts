@@ -8,7 +8,7 @@ const FEATURED_REPOS_IDS = [
     "Java_RAG_Application",
     "BotMarketplace_demo",
     "RealTimeSocketIO",
-    "SpringSecurityDemo"
+    "SpringSecurityDemo",
 ];
 
 export async function fetchFilteredGithub(): Promise<GithubProject[]> {
