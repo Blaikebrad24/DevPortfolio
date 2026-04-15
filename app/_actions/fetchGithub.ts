@@ -40,7 +40,7 @@ async function _fetchGithubRepos(): Promise<GithubProject[]>
         return githubCache.data;
     }
 
-    const res = await fetch("https://api.github.com/users/Blaikebrad24/repos", {
+    const res = await fetch("https://api.github.com/users/Blaikebrad24/repos?per_page=100", {
         headers: { "Accept": "application/vnd.github+json" },
       // cache: "force-cache", // Optionally use fetch cache
     });
@@ -81,6 +81,26 @@ async function _fetchGithubRepos(): Promise<GithubProject[]>
                     downs: ["Time taken to complete this application"],
                     takeaways: ["Spinning up a backend Docker container with a AI model"],
                 },
+            },
+            "Golang_Practice": {
+
+                design : {
+                    overview: "This bundle of code and containers is my first Golang repository. I am going to migrate to using Golang as my primary backend langugae.",
+                    challenges: ["Syntax, goroutines, concurrency best practices."],
+                    solutions: ["More study."],
+
+                },
+                process: {
+                    timeline: "I plan on using Golang for my LMS backend, so I need 3-6 weeks of constant use to feel comfortable.",
+                    approach: "Integrating Golang in current tech stack.",
+                    keyMilestones: ["Completing a OAuth2/JWT and Golang APIs"],
+
+                },
+                learnings: {
+                    ups: ["Future-proof", "Becoming efficient in another backend language", "Building production ready applications with Golang"],
+                    downs: ["None"],
+                    takeaways: ["Go throug the documentation and personal projects to get my repititions up. "],
+                }
             },
             "Java_RAG_Application":{
                 design: {

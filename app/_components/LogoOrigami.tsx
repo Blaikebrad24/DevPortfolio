@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { SiAmazon, SiGithub, SiGoogle, SiMeta, SiTwitch } from "react-icons/si";
+import { SiGithub, SiGoogle, SiMeta, SiTwitch } from "react-icons/si";
+import { FaAmazon } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 
 export default function LogoOrigami (){
@@ -9,7 +10,7 @@ export default function LogoOrigami (){
       <LogoRolodex
         items={[
           <LogoItem key={1} className="bg-orange-300 text-neutral-900">
-            <SiAmazon />
+            <FaAmazon />
           </LogoItem>,
           <LogoItem key={2} className="bg-green-300 text-neutral-900">
             <SiGoogle />
